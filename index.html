@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Youssouf Bechir Youssouf — Portfolio Logistique</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Poppins:wght@700;800&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+:root{--p:#0f3460;--a:#0099ff;--l:#a8d8ea;--bg:#0a0a1a;--c:#111128;--t:#e8e8f0;--m:#8888aa;--b:#2a2a4a}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--t);overflow-x:hidden}
+a{text-decoration:none}
+nav{position:fixed;top:0;left:0;right:0;z-index:999;background:rgba(10,10,26,.95);backdrop-filter:blur(16px);border-bottom:1px solid var(--b);padding:0 2rem;height:64px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:'Poppins',sans-serif;font-weight:800;font-size:1.2rem;background:linear-gradient(135deg,var(--a),var(--l));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.nav-links{display:flex;gap:1.5rem;list-style:none}
+.nav-links a{color:var(--m);font-size:.9rem;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:var(--a)}
+.btn{padding:10px 24px;border-radius:10px;font-weight:600;font-size:.9rem;cursor:pointer;transition:all .25s;border:none}
+.btn-p{background:linear-gradient(135deg,var(--a),var(--p));color:#fff}
+.btn-p:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,153,255,.3)}
+.btn-s{background:transparent;color:var(--t);border:1px solid var(--b)}
+.btn-s:hover{border-color:var(--a);color:var(--a);transform:translateY(-2px)}
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:80px 2rem 2rem;position:relative}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 40%,rgba(15,52,96,.4),transparent 60%),radial-gradient(ellipse at 70% 70%,rgba(0,153,255,.12),transparent 50%)}
+.hero-content{position:relative;z-index:1;max-width:800px}
+.badge{display:inline-block;background:rgba(0,153,255,.1);border:1px solid rgba(0,153,255,.3);border-radius:50px;padding:6px 20px;font-size:.85rem;color:var(--a);margin-bottom:1.5rem;font-weight:600;letter-spacing:1px}
+h1{font-family:'Poppins',sans-serif;font-size:clamp(2.5rem,6vw,4.5rem);font-weight:800;line-height:1.1;margin-bottom:1rem}
+h1 span{background:linear-gradient(135deg,var(--a),var(--l));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero-sub{font-size:1.2rem;color:var(--m);margin-bottom:.75rem}
+.tags{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:1.5rem 0 2.5rem}
+.tag{background:rgba(255,255,255,.05);border:1px solid var(--b);border-radius:50px;padding:6px 16px;font-size:.82rem}
+.cta{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+section{padding:100px 2rem;max-width:1100px;margin:0 auto}
+.sec-header{text-align:center;margin-bottom:4rem}
+.sec-label{font-size:.78rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--a);margin-bottom:.75rem}
+.sec-title{font-family:'Poppins',sans-serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:700}
+.sec-title span{color:var(--a)}
+.line{width:60px;height:4px;background:linear-gradient(90deg,var(--a),var(--l));border-radius:4px;margin:1rem auto 0}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
+.about-text p{color:var(--m);line-height:1.8;margin-bottom:1rem}
+.about-text p strong{color:var(--t)}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.stat{background:var(--c);border:1px solid var(--b);border-radius:16px;padding:1.5rem;text-align:center;transition:transform .3s,border-color .3s}
+.stat:hover{transform:translateY(-4px);border-color:var(--a)}
+.stat-n{font-family:'Poppins',sans-serif;font-size:2.5rem;font-weight:800;color:var(--a)}
+.stat-l{font-size:.85rem;color:var(--m);margin-top:4px}
+.timeline{position:relative;padding-left:2rem}
+.timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--a),var(--p),transparent)}
+.ti{position:relative;margin-bottom:3rem;padding-left:2rem}
+.ti::before{content:'';position:absolute;left:-2.4rem;top:.4rem;width:14px;height:14px;background:var(--a);border-radius:50%;box-shadow:0 0 0 4px rgba(0,153,255,.2)}
+.ti-date{font-size:.78rem;font-weight:700;color:var(--a);letter-spacing:1px;text-transform:uppercase;margin-bottom:.5rem}
+.ti-card{background:var(--c);border:1px solid var(--b);border-radius:16px;padding:1.5rem 2rem;transition:border-color .3s}
+.ti-card:hover{border-color:var(--a)}
+.ti-card h3{font-family:'Poppins',sans-serif;font-size:1.1rem;font-weight:700;margin-bottom:.25rem}
+.ti-co{font-size:.9rem;color:var(--a);font-weight:600;margin-bottom:.75rem}
+.ti-card p{color:var(--m);font-size:.9rem;line-height:1.7}
+.ti-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:1rem}
+.tt{background:rgba(0,153,255,.1);border:1px solid rgba(0,153,255,.2);color:var(--a);font-size:.72rem;font-weight:600;padding:4px 12px;border-radius:50px}
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem}
+.sc{background:var(--c);border:1px solid var(--b);border-radius:20px;padding:2rem;transition:transform .3s,border-color .3s}
+.sc:hover{transform:translateY(-4px);border-color:var(--a)}
+.sc-title{display:flex;align-items:center;gap:.75rem;margin-bottom:1.5rem;font-family:'Poppins',sans-serif;font-weight:700;font-size:1rem}
+.sc-icon{width:40px;height:40px;background:linear-gradient(135deg,var(--a),var(--p));border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1rem}
+.si{display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem}
+.si-name{font-size:.88rem;font-weight:500}
+.si-bar{flex:1;margin:0 1rem;height:6px;background:rgba(255,255,255,.06);border-radius:10px;overflow:hidden}
+.si-fill{height:100%;border-radius:10px;background:linear-gradient(90deg,var(--a),var(--l))}
+.si-pct{font-size:.72rem;color:var(--m);min-width:32px;text-align:right}
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem}
+.pc{background:var(--c);border:1px solid var(--b);border-radius:20px;padding:2rem;display:flex;flex-direction:column;transition:transform .3s,border-color .3s,box-shadow .3s}
+.pc:hover{transform:translateY(-6px);border-color:var(--a);box-shadow:0 20px 50px rgba(0,153,255,.1)}
+.pc-icon{font-size:2rem;margin-bottom:1rem}
+.pc-type{font-size:.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--a);margin-bottom:.5rem}
+.pc-title{font-family:'Poppins',sans-serif;font-weight:700;font-size:1.05rem;margin-bottom:.75rem}
+.pc-desc{color:var(--m);font-size:.88rem;line-height:1.7;flex:1}
+.pc-footer{display:flex;align-items:center;justify-content:space-between;margin-top:1.5rem;padding-top:1rem;border-top:1px solid var(--b)}
+.pc-stack{display:flex;gap:6px;flex-wrap:wrap}
+.st{font-size:.68rem;font-weight:600;color:var(--m);background:rgba(255,255,255,.04);border:1px solid var(--b);padding:3px 9px;border-radius:50px}
+.done{color:#27ae60;font-size:.78rem;font-weight:600}
+.wip{color:var(--a);font-size:.78rem;font-weight:600}
+.contact-wrap{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
+.ci-wrap{display:flex;flex-direction:column;gap:1rem}
+.contact-info p{color:var(--m);line-height:1.8;margin-bottom:1.5rem}
+.ci{display:flex;align-items:center;gap:1rem;background:var(--c);border:1px solid var(--b);border-radius:12px;padding:1rem 1.5rem;color:var(--t);transition:border-color .3s,transform .3s}
+.ci:hover{border-color:var(--a);transform:translateX(4px)}
+.ci-icon{width:40px;height:40px;background:linear-gradient(135deg,var(--a),var(--p));border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ci-text span{display:block;font-size:.72rem;color:var(--m)}
+.ci-text strong{font-size:.88rem}
+.contact-card{background:linear-gradient(135deg,var(--c),#1a1a35);border:1px solid var(--b);border-radius:24px;padding:2.5rem;text-align:center}
+.contact-card .big{font-size:4rem;margin-bottom:1rem}
+.contact-card h4{font-family:'Poppins',sans-serif;font-size:1.5rem;font-weight:700;margin-bottom:.75rem}
+.contact-card p{color:var(--m);margin-bottom:2rem;font-size:.92rem}
+.open{display:inline-block;background:rgba(39,174,96,.1);border:1px solid rgba(39,174,96,.3);color:#27ae60;padding:8px 20px;border-radius:50px;font-size:.88rem;font-weight:600;margin-bottom:1.5rem}
+footer{text-align:center;padding:3rem 2rem;border-top:1px solid var(--b);color:var(--m);font-size:.82rem}
+footer strong{color:var(--a)}
+@media(max-width:768px){.about-grid,.contact-wrap{grid-template-columns:1fr}.nav-links{display:none}}
+</style>
+</head>
+<body>
+<nav>
+<div class="logo">YBY</div>
+<ul class="nav-links">
+<li><a href="#about">À propos</a></li>
+<li><a href="#experience">Expériences</a></li>
+<li><a href="#skills">Compétences</a></li>
+<li><a href="#projects">Projets</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+<a href="mailto:youssoufbechirbeni1@gmail.com" class="btn btn-p" style="font-size:.82rem;padding:8px 18px">Me contacter</a>
+</nav>
+<section class="hero" id="home">
+<div class="hero-content">
+<div class="badge">🎓 Étudiant en alternance · IUT Bachelor MLT</div>
+<h1>Youssouf Bechir<br/><span>Youssouf</span></h1>
+<p class="hero-sub">Management Logistique &amp; Transport</p>
+<div class="tags">
+<span class="tag">🏢 ULOGISTIQUE · 2 ans</span>
+<span class="tag">📦 Supply Chain</span>
+<span class="tag">🚛 Transport &amp; Distribution</span>
+<span class="tag">📊 Gestion des flux</span>
+<span class="tag">📈 KPIs &amp; Performance</span>
+</div>
+<div class="cta">
+<a href="#projects" class="btn btn-p">Voir mes projets</a>
+<a href="#contact" class="btn btn-s">Me contacter</a>
+</div>
+</div>
+</section>
+<section id="about">
+<div class="sec-header">
+<div class="sec-label">Qui suis-je ?</div>
+<h2 class="sec-title">À propos de <span>moi</span></h2>
+<div class="line"></div>
+</div>
+<div class="about-grid">
+<div class="about-text">
+<p>Je suis <strong>Youssouf Bechir Youssouf</strong>, étudiant en <strong>Bachelor Management Logistique et Transport</strong> à l'IUT, actuellement en alternance chez <strong>ULOGISTIQUE</strong> pour 2 ans.</p>
+<p>Mon parcours combine une <strong>formation académique rigoureuse</strong> avec une <strong>expérience pratique en entreprise</strong>, me donnant une vision à 360° des enjeux logistiques. Passionné par l'amélioration continue, les KPIs et l'optimisation des flux.</p>
+<p>Disponible, rigoureux et orienté résultats, je cherche à apporter une <strong>réelle valeur ajoutée</strong> dans chaque mission confiée.</p>
+</div>
+<div class="stats">
+<div class="stat"><div class="stat-n">2</div><div class="stat-l">Ans d'alternance</div></div>
+<div class="stat"><div class="stat-n">3</div><div class="stat-l">Ans de formation</div></div>
+<div class="stat"><div class="stat-n">10+</div><div class="stat-l">Projets réalisés</div></div>
+<div class="stat"><div class="stat-n">100%</div><div class="stat-l">Motivation</div></div>
+</div>
+</div>
+</section>
+<section id="experience">
+<div class="sec-header">
+<div class="sec-label">Mon parcours</div>
+<h2 class="sec-title">Expériences <span>professionnelles</span></h2>
+<div class="line"></div>
+</div>
+<div class="timeline">
+<div class="ti">
+<div class="ti-date">2023 – Présent · Alternance</div>
+<div class="ti-card">
+<h3>Alternant Logistique</h3>
+<div class="ti-co">🏢 ULOGISTIQUE</div>
+<p>Gestion et coordination des flux entrants/sortants, suivi des KPIs opérationnels, optimisation des processus d'entrepôt, coordination transporteurs, interface clients, gestion documentaire et amélioration continue.</p>
+<div class="ti-tags"><span class="tt">Gestion de stock</span><span class="tt">Transport</span><span class="tt">KPIs</span><span class="tt">WMS</span><span class="tt">Amélioration continue</span></div>
+</div>
+</div>
+<div class="ti">
+<div class="ti-date">2022 – 2023 · Stages</div>
+<div class="ti-card">
+<h3>Expériences Terrain</h3>
+<div class="ti-co">📦 Secteur Logistique &amp; Transport</div>
+<p>Immersion opérationnelle : préparation de commandes, gestion de stock, inventaires, réceptions et expéditions. Découverte concrète des métiers de la supply chain et de l'entrepôt.</p>
+<div class="ti-tags"><span class="tt">Entrepôt</span><span class="tt">Préparation commandes</span><span class="tt">Stock</span><span class="tt">Réception</span></div>
+</div>
+</div>
+<div class="ti">
+<div class="ti-date">2022 – 2025 · Formation</div>
+<div class="ti-card">
+<h3>Bachelor Management Logistique &amp; Transport</h3>
+<div class="ti-co">🎓 IUT</div>
+<p>Formation complète : supply chain, transport multimodal, gestion des opérations, droit du transport, management d'équipe. Nombreux projets sur des problématiques réelles du secteur.</p>
+<div class="ti-tags"><span class="tt">Supply Chain</span><span class="tt">Droit Transport</span><span class="tt">Management</span><span class="tt">Gestion de projet</span></div>
+</div>
+</div>
+</div>
+</section>
+<section id="skills">
+<div class="sec-header">
+<div class="sec-label">Ce que je sais faire</div>
+<h2 class="sec-title">Mes <span>compétences</span></h2>
+<div class="line"></div>
+</div>
+<div class="skills-grid">
+<div class="sc">
+<div class="sc-title"><div class="sc-icon">📦</div>Logistique &amp; Supply Chain</div>
+<div class="si"><span class="si-name">Gestion de stock</span><div class="si-bar"><div class="si-fill" style="width:90%"></div></div><span class="si-pct">90%</span></div>
+<div class="si"><span class="si-name">Flux entrants/sortants</span><div class="si-bar"><div class="si-fill" style="width:85%"></div></div><span class="si-pct">85%</span></div>
+<div class="si"><span class="si-name">WMS / Outils entrepôt</span><div class="si-bar"><div class="si-fill" style="width:75%"></div></div><span class="si-pct">75%</span></div>
+<div class="si"><span class="si-name">Amélioration continue</span><div class="si-bar"><div class="si-fill" style="width:80%"></div></div><span class="si-pct">80%</span></div>
+</div>
+<div class="sc">
+<div class="sc-title"><div class="sc-icon">🚛</div>Transport &amp; Distribution</div>
+<div class="si"><span class="si-name">Planification transport</span><div class="si-bar"><div class="si-fill" style="width:80%"></div></div><span class="si-pct">80%</span></div>
+<div class="si"><span class="si-name">Relation transporteurs</span><div class="si-bar"><div class="si-fill" style="width:85%"></div></div><span class="si-pct">85%</span></div>
+<div class="si"><span class="si-name">Droit du transport</span><div class="si-bar"><div class="si-fill" style="width:70%"></div></div><span class="si-pct">70%</span></div>
+<div class="si"><span class="si-name">Incoterms &amp; Douane</span><div class="si-bar"><div class="si-fill" style="width:65%"></div></div><span class="si-pct">65%</span></div>
+</div>
+<div class="sc">
+<div class="sc-title"><div class="sc-icon">💼</div>Management &amp; Outils</div>
+<div class="si"><span class="si-name">Microsoft Excel</span><div class="si-bar"><div class="si-fill" style="width:80%"></div></div><span class="si-pct">80%</span></div>
+<div class="si"><span class="si-name">Gestion de projet</span><div class="si-bar"><div class="si-fill" style="width:75%"></div></div><span class="si-pct">75%</span></div>
+<div class="si"><span class="si-name">Communication</span><div class="si-bar"><div class="si-fill" style="width:90%"></div></div><span class="si-pct">90%</span></div>
+<div class="si"><span class="si-name">Travail en équipe</span><div class="si-bar"><div class="si-fill" style="width:95%"></div></div><span class="si-pct">95%</span></div>
+</div>
+</div>
+</section>
+<section id="projects">
+<div class="sec-header">
+<div class="sec-label">Mes réalisations</div>
+<h2 class="sec-title">Projets <span>&amp; Travaux</span></h2>
+<div class="line"></div>
+</div>
+<div class="projects-grid">
+<div class="pc"><div class="pc-icon">📊</div><div class="pc-type">Académique · IUT</div><div class="pc-title">Audit de chaîne logistique</div><p class="pc-desc">Analyse complète d'une chaîne d'approvisionnement : cartographie des flux, goulots d'étranglement, calcul des coûts et recommandations d'amélioration.</p><div class="pc-footer"><div class="pc-stack"><span class="st">Audit</span><span class="st">Supply Chain</span><span class="st">Excel</span></div><span class="done">✅ Terminé</span></div></div>
+<div class="pc"><div class="pc-icon">🚛</div><div class="pc-type">Académique · IUT</div><div class="pc-title">Optimisation des tournées de livraison</div><p class="pc-desc">Modélisation d'une tournée optimisée avec réduction des coûts kilométriques et délais. Application des algorithmes de routage.</p><div class="pc-footer"><div class="pc-stack"><span class="st">Transport</span><span class="st">Optimisation</span><span class="st">Modélisation</span></div><span class="done">✅ Terminé</span></div></div>
+<div class="pc"><div class="pc-icon">📦</div><div class="pc-type">Académique · IUT</div><div class="pc-title">Politique de gestion des stocks</div><p class="pc-desc">Politique de réapprovisionnement complète : analyse ABC/XYZ, stock de sécurité, point de commande et quantité économique de commande (Wilson).</p><div class="pc-footer"><div class="pc-stack"><span class="st">Stocks</span><span class="st">ABC</span><span class="st">Wilson</span></div><span class="done">✅ Terminé</span></div></div>
+<div class="pc"><div class="pc-icon">📈</div><div class="pc-type">Alternance · ULOGISTIQUE</div><div class="pc-title">Tableau de bord KPIs Entrepôt</div><p class="pc-desc">Conception d'un tableau de bord de suivi des KPIs (taux de service, productivité picking) pour piloter l'activité opérationnelle.</p><div class="pc-footer"><div class="pc-stack"><span class="st">KPIs</span><span class="st">Excel</span><span class="st">Reporting</span></div><span class="wip">🔄 En cours</span></div></div>
+<div class="pc"><div class="pc-icon">🔄</div><div class="pc-type">Alternance · ULOGISTIQUE</div><div class="pc-title">Optimisation des flux entrepôt</div><p class="pc-desc">Réorganisation des zones de stockage pour réduire les distances de picking. Plan d'implantation basé sur la rotation ABC des produits.</p><div class="pc-footer"><div class="pc-stack"><span class="st">Entrepôt</span><span class="st">Lean</span><span class="st">5S</span></div><span class="wip">🔄 En cours</span></div></div>
+<div class="pc"><div class="pc-icon">📋</div><div class="pc-type">Académique · IUT</div><div class="pc-title">Business Case Externalisation Logistique</div><p class="pc-desc">Business case complet pour l'externalisation d'une fonction logistique : make-or-buy, cahier des charges et grille d'évaluation des 3PL.</p><div class="pc-footer"><div class="pc-stack"><span class="st">Make or Buy</span><span class="st">3PL</span><span class="st">Business Case</span></div><span class="done">✅ Terminé</span></div></div>
+</div>
+</section>
+<section id="contact">
+<div class="sec-header">
+<div class="sec-label">Travaillons ensemble</div>
+<h2 class="sec-title">Me <span>contacter</span></h2>
+<div class="line"></div>
+</div>
+<div class="contact-wrap">
+<div class="contact-info">
+<p>Que vous soyez recruteur, partenaire ou simplement curieux de mon parcours, je réponds toujours rapidement !</p>
+<div class="ci-wrap">
+<a href="mailto:youssoufbechirbeni1@gmail.com" class="ci"><div class="ci-icon"><i class="fas fa-envelope"></i></div><div class="ci-text"><span>Email</span><strong>youssoufbechirbeni1@gmail.com</strong></div></a>
+<a href="https://linkedin.com/in/youssouf-bechir-youssouf" target="_blank" class="ci"><div class="ci-icon"><i class="fab fa-linkedin-in"></i></div><div class="ci-text"><span>LinkedIn</span><strong>Youssouf Bechir Youssouf</strong></div></a>
+<a href="https://github.com/Youssouf55" target="_blank" class="ci"><div class="ci-icon"><i class="fab fa-github"></i></div><div class="ci-text"><span>GitHub</span><strong>@Youssouf55</strong></div></a>
+</div>
+</div>
+<div class="contact-card">
+<div class="big">🎯</div>
+<h4>Ouvert aux opportunités</h4>
+<p>Actuellement en alternance, je suis ouvert aux échanges avec des professionnels du secteur.</p>
+<div class="open">● Disponible à partir de 2025</div><br/><br/>
+<a href="mailto:youssoufbechirbeni1@gmail.com" class="btn btn-p" style="display:inline-block;width:100%;text-align:center">✉️ Envoyer un message</a>
+</div>
+</div>
+</section>
+<footer>
+<p>© 2024 <strong>Youssouf Bechir Youssouf</strong> · Bachelor Management Logistique &amp; Transport</p>
+<p style="margin-top:.5rem">Fait avec ❤️ et passion pour la logistique</p>
+</footer>
+</body>
+  </html>
