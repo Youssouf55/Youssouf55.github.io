@@ -1,260 +1,934 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Youssouf Bechir Youssouf — Portfolio Logistique</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Poppins:wght@700;800&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
-<style>
-*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
-:root{--p:#0f3460;--a:#0099ff;--l:#a8d8ea;--bg:#0a0a1a;--c:#111128;--t:#e8e8f0;--m:#8888aa;--b:#2a2a4a}
-body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--t);overflow-x:hidden}
-a{text-decoration:none}
-nav{position:fixed;top:0;left:0;right:0;z-index:999;background:rgba(10,10,26,.95);backdrop-filter:blur(16px);border-bottom:1px solid var(--b);padding:0 2rem;height:64px;display:flex;align-items:center;justify-content:space-between}
-.logo{font-family:'Poppins',sans-serif;font-weight:800;font-size:1.2rem;background:linear-gradient(135deg,var(--a),var(--l));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.nav-links{display:flex;gap:1.5rem;list-style:none}
-.nav-links a{color:var(--m);font-size:.9rem;font-weight:500;transition:color .2s}
-.nav-links a:hover{color:var(--a)}
-.btn{padding:10px 24px;border-radius:10px;font-weight:600;font-size:.9rem;cursor:pointer;transition:all .25s;border:none}
-.btn-p{background:linear-gradient(135deg,var(--a),var(--p));color:#fff}
-.btn-p:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,153,255,.3)}
-.btn-s{background:transparent;color:var(--t);border:1px solid var(--b)}
-.btn-s:hover{border-color:var(--a);color:var(--a);transform:translateY(-2px)}
-.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:80px 2rem 2rem;position:relative}
-.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 40%,rgba(15,52,96,.4),transparent 60%),radial-gradient(ellipse at 70% 70%,rgba(0,153,255,.12),transparent 50%)}
-.hero-content{position:relative;z-index:1;max-width:800px}
-.badge{display:inline-block;background:rgba(0,153,255,.1);border:1px solid rgba(0,153,255,.3);border-radius:50px;padding:6px 20px;font-size:.85rem;color:var(--a);margin-bottom:1.5rem;font-weight:600;letter-spacing:1px}
-h1{font-family:'Poppins',sans-serif;font-size:clamp(2.5rem,6vw,4.5rem);font-weight:800;line-height:1.1;margin-bottom:1rem}
-h1 span{background:linear-gradient(135deg,var(--a),var(--l));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.hero-sub{font-size:1.2rem;color:var(--m);margin-bottom:.75rem}
-.tags{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:1.5rem 0 2.5rem}
-.tag{background:rgba(255,255,255,.05);border:1px solid var(--b);border-radius:50px;padding:6px 16px;font-size:.82rem}
-.cta{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
-section{padding:100px 2rem;max-width:1100px;margin:0 auto}
-.sec-header{text-align:center;margin-bottom:4rem}
-.sec-label{font-size:.78rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--a);margin-bottom:.75rem}
-.sec-title{font-family:'Poppins',sans-serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:700}
-.sec-title span{color:var(--a)}
-.line{width:60px;height:4px;background:linear-gradient(90deg,var(--a),var(--l));border-radius:4px;margin:1rem auto 0}
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
-.about-text p{color:var(--m);line-height:1.8;margin-bottom:1rem}
-.about-text p strong{color:var(--t)}
-.stats{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
-.stat{background:var(--c);border:1px solid var(--b);border-radius:16px;padding:1.5rem;text-align:center;transition:transform .3s,border-color .3s}
-.stat:hover{transform:translateY(-4px);border-color:var(--a)}
-.stat-n{font-family:'Poppins',sans-serif;font-size:2.5rem;font-weight:800;color:var(--a)}
-.stat-l{font-size:.85rem;color:var(--m);margin-top:4px}
-.timeline{position:relative;padding-left:2rem}
-.timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--a),var(--p),transparent)}
-.ti{position:relative;margin-bottom:3rem;padding-left:2rem}
-.ti::before{content:'';position:absolute;left:-2.4rem;top:.4rem;width:14px;height:14px;background:var(--a);border-radius:50%;box-shadow:0 0 0 4px rgba(0,153,255,.2)}
-.ti-date{font-size:.78rem;font-weight:700;color:var(--a);letter-spacing:1px;text-transform:uppercase;margin-bottom:.5rem}
-.ti-card{background:var(--c);border:1px solid var(--b);border-radius:16px;padding:1.5rem 2rem;transition:border-color .3s}
-.ti-card:hover{border-color:var(--a)}
-.ti-card h3{font-family:'Poppins',sans-serif;font-size:1.1rem;font-weight:700;margin-bottom:.25rem}
-.ti-co{font-size:.9rem;color:var(--a);font-weight:600;margin-bottom:.75rem}
-.ti-card p{color:var(--m);font-size:.9rem;line-height:1.7}
-.ti-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:1rem}
-.tt{background:rgba(0,153,255,.1);border:1px solid rgba(0,153,255,.2);color:var(--a);font-size:.72rem;font-weight:600;padding:4px 12px;border-radius:50px}
-.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem}
-.sc{background:var(--c);border:1px solid var(--b);border-radius:20px;padding:2rem;transition:transform .3s,border-color .3s}
-.sc:hover{transform:translateY(-4px);border-color:var(--a)}
-.sc-title{display:flex;align-items:center;gap:.75rem;margin-bottom:1.5rem;font-family:'Poppins',sans-serif;font-weight:700;font-size:1rem}
-.sc-icon{width:40px;height:40px;background:linear-gradient(135deg,var(--a),var(--p));border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1rem}
-.si{display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem}
-.si-name{font-size:.88rem;font-weight:500}
-.si-bar{flex:1;margin:0 1rem;height:6px;background:rgba(255,255,255,.06);border-radius:10px;overflow:hidden}
-.si-fill{height:100%;border-radius:10px;background:linear-gradient(90deg,var(--a),var(--l))}
-.si-pct{font-size:.72rem;color:var(--m);min-width:32px;text-align:right}
-.projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem}
-.pc{background:var(--c);border:1px solid var(--b);border-radius:20px;padding:2rem;display:flex;flex-direction:column;transition:transform .3s,border-color .3s,box-shadow .3s}
-.pc:hover{transform:translateY(-6px);border-color:var(--a);box-shadow:0 20px 50px rgba(0,153,255,.1)}
-.pc-icon{font-size:2rem;margin-bottom:1rem}
-.pc-type{font-size:.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--a);margin-bottom:.5rem}
-.pc-title{font-family:'Poppins',sans-serif;font-weight:700;font-size:1.05rem;margin-bottom:.75rem}
-.pc-desc{color:var(--m);font-size:.88rem;line-height:1.7;flex:1}
-.pc-footer{display:flex;align-items:center;justify-content:space-between;margin-top:1.5rem;padding-top:1rem;border-top:1px solid var(--b)}
-.pc-stack{display:flex;gap:6px;flex-wrap:wrap}
-.st{font-size:.68rem;font-weight:600;color:var(--m);background:rgba(255,255,255,.04);border:1px solid var(--b);padding:3px 9px;border-radius:50px}
-.done{color:#27ae60;font-size:.78rem;font-weight:600}
-.wip{color:var(--a);font-size:.78rem;font-weight:600}
-.contact-wrap{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
-.ci-wrap{display:flex;flex-direction:column;gap:1rem}
-.contact-info p{color:var(--m);line-height:1.8;margin-bottom:1.5rem}
-.ci{display:flex;align-items:center;gap:1rem;background:var(--c);border:1px solid var(--b);border-radius:12px;padding:1rem 1.5rem;color:var(--t);transition:border-color .3s,transform .3s}
-.ci:hover{border-color:var(--a);transform:translateX(4px)}
-.ci-icon{width:40px;height:40px;background:linear-gradient(135deg,var(--a),var(--p));border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.ci-text span{display:block;font-size:.72rem;color:var(--m)}
-.ci-text strong{font-size:.88rem}
-.contact-card{background:linear-gradient(135deg,var(--c),#1a1a35);border:1px solid var(--b);border-radius:24px;padding:2.5rem;text-align:center}
-.contact-card .big{font-size:4rem;margin-bottom:1rem}
-.contact-card h4{font-family:'Poppins',sans-serif;font-size:1.5rem;font-weight:700;margin-bottom:.75rem}
-.contact-card p{color:var(--m);margin-bottom:2rem;font-size:.92rem}
-.open{display:inline-block;background:rgba(39,174,96,.1);border:1px solid rgba(39,174,96,.3);color:#27ae60;padding:8px 20px;border-radius:50px;font-size:.88rem;font-weight:600;margin-bottom:1.5rem}
-footer{text-align:center;padding:3rem 2rem;border-top:1px solid var(--b);color:var(--m);font-size:.82rem}
-footer strong{color:var(--a)}
-@media(max-width:768px){.about-grid,.contact-wrap{grid-template-columns:1fr}.nav-links{display:none}}
-</style>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Youssouf Bechir — Supply Chain & Achats</title>
+  <style>
+    :root {
+      --navy:        #0b1929;
+      --navy-mid:    #0f2340;
+      --navy-light:  #152e52;
+      --card:        #111f36;
+      --gold:        #c8a84b;
+      --gold-light:  #dfc06a;
+      --gold-dim:    rgba(200,168,75,0.15);
+      --border:      rgba(200,168,75,0.18);
+      --white:       #f0f4fb;
+      --muted:       #8898b8;
+      --text:        #d8e2f4;
+      --radius:      10px;
+    }
+
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior:smooth; font-size:16px; }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: var(--navy);
+      color: var(--text);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    ::-webkit-scrollbar { width:5px; }
+    ::-webkit-scrollbar-track { background: var(--navy); }
+    ::-webkit-scrollbar-thumb { background: var(--gold); border-radius:3px; }
+
+    /* ── CANVAS ── */
+    #canvas-bg {
+      position:fixed; inset:0; z-index:0;
+      pointer-events:none; opacity:0.55;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position:fixed; top:0; width:100%; z-index:100;
+      background: rgba(11,25,41,0.88);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border);
+      height:62px;
+      display:flex; align-items:center; justify-content:space-between;
+      padding: 0 clamp(1.5rem,5vw,5rem);
+    }
+    .nav-logo {
+      font-size:1.15rem; font-weight:800;
+      color:var(--gold); letter-spacing:1px;
+      text-decoration:none;
+    }
+    .nav-links {
+      display:flex; gap:2.2rem; list-style:none;
+    }
+    .nav-links a {
+      color:var(--muted); text-decoration:none;
+      font-size:0.82rem; font-weight:600; letter-spacing:0.6px;
+      text-transform:uppercase; transition:color .2s;
+    }
+    .nav-links a:hover { color:var(--gold); }
+
+    /* ── HERO ── */
+    #hero {
+      position:relative; z-index:1;
+      min-height:100vh;
+      display:flex; align-items:center; justify-content:center;
+      padding: 80px clamp(1.5rem,5vw,5rem) 60px;
+      text-align:center;
+    }
+    .hero-inner { max-width:860px; }
+
+    .hero-badge {
+      display:inline-block;
+      border:1px solid var(--border);
+      background: var(--gold-dim);
+      color:var(--gold);
+      font-size:0.72rem; font-weight:700;
+      letter-spacing:1.8px; text-transform:uppercase;
+      padding:6px 20px; border-radius:40px;
+      margin-bottom:1.6rem;
+    }
+
+    h1.hero-name {
+      font-size: clamp(3rem,8vw,5.5rem);
+      font-weight:900; line-height:1.05;
+      color:var(--white);
+      letter-spacing:-1px;
+      margin-bottom:1rem;
+    }
+    h1.hero-name .accent { color:var(--gold); }
+
+    .hero-role {
+      font-size: clamp(1rem,2.5vw,1.25rem);
+      color:var(--muted); margin-bottom:.5rem;
+      font-weight:500;
+    }
+    .hero-location {
+      font-size:.85rem; color:var(--muted); opacity:.75;
+      margin-bottom:2.6rem;
+    }
+
+    .hero-cta {
+      display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;
+    }
+    .btn {
+      padding:13px 34px; border-radius:var(--radius);
+      font-size:.88rem; font-weight:700;
+      text-decoration:none; transition: transform .15s, opacity .15s;
+      cursor:pointer; border:none;
+    }
+    .btn:hover { transform:translateY(-2px); opacity:.9; }
+    .btn-gold   { background:var(--gold); color:var(--navy); }
+    .btn-outline { background:transparent; color:var(--gold); border:1.5px solid var(--gold); }
+
+    .hero-kpis {
+      display:flex; justify-content:center; gap:3.5rem;
+      margin-top:4.5rem; flex-wrap:wrap;
+    }
+    .kpi { text-align:center; }
+    .kpi-num {
+      font-size:2.4rem; font-weight:900; color:var(--gold);
+      line-height:1;
+    }
+    .kpi-num sup { font-size:1rem; font-weight:700; }
+    .kpi-label {
+      font-size:.72rem; color:var(--muted); letter-spacing:1px;
+      text-transform:uppercase; margin-top:.3rem;
+    }
+
+    /* ── WRAPPERS ── */
+    .section-wrap {
+      position:relative; z-index:1;
+      max-width:1080px; margin:0 auto;
+      padding: 90px clamp(1.5rem,5vw,4rem);
+    }
+
+    .s-label {
+      font-size:.7rem; font-weight:700; letter-spacing:2.5px;
+      text-transform:uppercase; color:var(--gold);
+      margin-bottom:.6rem;
+    }
+    .s-title {
+      font-size:clamp(1.8rem,4vw,2.6rem);
+      font-weight:800; color:var(--white);
+      margin-bottom:.4rem;
+    }
+    .s-title .a { color:var(--gold); }
+    .s-bar {
+      width:44px; height:3px;
+      background:linear-gradient(90deg,var(--gold),transparent);
+      border-radius:.px; margin-bottom:3.5rem;
+    }
+
+    /* ── ABOUT ── */
+    .about-grid {
+      display:grid; grid-template-columns:1fr 1fr;
+      gap:3rem; align-items:center;
+    }
+    .about-text p { color:var(--muted); margin-bottom:1.1rem; font-size:.97rem; }
+    .about-text p strong { color:var(--white); }
+    .about-cards { display:flex; flex-direction:column; gap:.9rem; }
+    .acard {
+      display:flex; align-items:center; gap:1rem;
+      background:var(--card); border:1px solid var(--border);
+      border-radius:var(--radius); padding:1rem 1.2rem;
+      transition:border-color .2s;
+    }
+    .acard:hover { border-color:var(--gold); }
+    .acard-icon {
+      width:38px; height:38px; flex-shrink:0;
+      display:flex; align-items:center; justify-content:center;
+      background:var(--gold-dim); border-radius:8px;
+    }
+    .acard-icon svg { width:20px; height:20px; stroke:var(--gold); fill:none; stroke-width:1.8; }
+    .acard-body strong { display:block; color:var(--white); font-size:.9rem; }
+    .acard-body span { color:var(--muted); font-size:.8rem; }
+
+    /* ── TIMELINE ── */
+    .timeline { position:relative; padding-left:1.8rem; }
+    .timeline::before {
+      content:''; position:absolute; left:0; top:4px; bottom:0;
+      width:2px;
+      background:linear-gradient(to bottom,var(--gold) 0%,rgba(200,168,75,.05) 100%);
+    }
+    .titem {
+      position:relative; margin-left:1.8rem;
+      margin-bottom:2rem;
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:12px; padding:1.5rem 1.8rem;
+      transition:border-color .25s, transform .2s;
+    }
+    .titem:hover { border-color:var(--gold); transform:translateX(5px); }
+    .tdot {
+      position:absolute; left:-2.75rem; top:1.6rem;
+      width:13px; height:13px; border-radius:50%;
+      background:var(--gold);
+      border:3px solid var(--navy);
+      box-shadow:0 0 0 3px rgba(200,168,75,.25);
+    }
+    .thead {
+      display:flex; justify-content:space-between;
+      align-items:flex-start; flex-wrap:wrap; gap:.4rem;
+      margin-bottom:.3rem;
+    }
+    .trole { font-size:1rem; font-weight:700; color:var(--white); }
+    .tdate {
+      font-size:.76rem; color:var(--gold);
+      background:var(--gold-dim); padding:3px 13px;
+      border-radius:20px; border:1px solid var(--border);
+      white-space:nowrap;
+    }
+    .tcompany { font-size:.84rem; color:var(--gold); font-weight:600; margin-bottom:.8rem; }
+    .tpoints { list-style:none; }
+    .tpoints li {
+      font-size:.84rem; color:var(--muted);
+      padding:3px 0 3px 1.2rem; position:relative;
+    }
+    .tpoints li::before {
+      content:'›'; position:absolute; left:0;
+      color:var(--gold); font-size:1rem; line-height:1.4;
+    }
+    .tpoints li strong { color:var(--text); }
+
+    /* ── SKILLS ── */
+    .skills-grid {
+      display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:1.3rem;
+    }
+    .skill-card {
+      background:var(--card); border:1px solid var(--border);
+      border-radius:12px; padding:1.5rem;
+      transition:border-color .25s, transform .2s;
+    }
+    .skill-card:hover { border-color:var(--gold); transform:translateY(-3px); }
+    .sc-header {
+      display:flex; align-items:center; gap:.8rem;
+      margin-bottom:1rem;
+    }
+    .sc-icon {
+      width:36px; height:36px; border-radius:8px;
+      background:var(--gold-dim);
+      display:flex; align-items:center; justify-content:center;
+      flex-shrink:0;
+    }
+    .sc-icon svg { width:18px; height:18px; stroke:var(--gold); fill:none; stroke-width:1.8; }
+    .sc-title { font-size:.95rem; font-weight:700; color:var(--white); }
+    .tags { display:flex; flex-wrap:wrap; gap:.4rem; }
+    .tag {
+      background:var(--gold-dim); border:1px solid rgba(200,168,75,.22);
+      color:var(--gold-light); font-size:.72rem; font-weight:600;
+      padding:3px 11px; border-radius:20px;
+    }
+
+    /* ── LANGUAGES ── */
+    .lang-row {
+      display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+      gap:1rem; margin-top:2.5rem;
+    }
+    .lang-card {
+      background:var(--card); border:1px solid var(--border);
+      border-radius:var(--radius); padding:1.1rem 1.3rem;
+      display:flex; align-items:center; gap:1rem;
+      transition:border-color .2s;
+    }
+    .lang-card:hover { border-color:var(--gold); }
+    .flag { font-size:1.6rem; line-height:1; }
+    .lang-name { font-size:.9rem; font-weight:700; color:var(--white); }
+    .lang-lvl { font-size:.76rem; color:var(--gold); }
+
+    /* ── PROJECTS ── */
+    .projects-grid {
+      display:grid; grid-template-columns:repeat(auto-fit,minmax(310px,1fr));
+      gap:1.4rem;
+    }
+    .proj-card {
+      background:var(--card); border:1px solid var(--border);
+      border-radius:12px; padding:1.6rem;
+      display:flex; flex-direction:column;
+      transition:border-color .25s, transform .2s;
+    }
+    .proj-card:hover { border-color:var(--gold); transform:translateY(-4px); }
+    .proj-top {
+      display:flex; align-items:flex-start;
+      justify-content:space-between; gap:.8rem; margin-bottom:.8rem;
+    }
+    .proj-icon {
+      width:42px; height:42px; border-radius:10px;
+      background:var(--gold-dim); flex-shrink:0;
+      display:flex; align-items:center; justify-content:center;
+    }
+    .proj-icon svg { width:22px; height:22px; stroke:var(--gold); fill:none; stroke-width:1.7; }
+    .proj-link {
+      width:32px; height:32px; border-radius:8px;
+      border:1px solid var(--border); background:transparent;
+      display:flex; align-items:center; justify-content:center;
+      transition:border-color .2s; text-decoration:none; flex-shrink:0;
+    }
+    .proj-link:hover { border-color:var(--gold); }
+    .proj-link svg { width:15px; height:15px; stroke:var(--muted); fill:none; stroke-width:2; }
+    .proj-title { font-size:.98rem; font-weight:700; color:var(--white); margin-bottom:.4rem; }
+    .proj-desc { font-size:.82rem; color:var(--muted); line-height:1.6; flex:1; margin-bottom:1rem; }
+    .proj-tags { display:flex; flex-wrap:wrap; gap:.4rem; }
+
+    /* ── EDUCATION ── */
+    .edu-list { display:flex; flex-direction:column; gap:1.1rem; }
+    .edu-card {
+      background:var(--card); border:1px solid var(--border);
+      border-radius:12px; padding:1.3rem 1.6rem;
+      display:flex; justify-content:space-between;
+      align-items:flex-start; flex-wrap:wrap; gap:.8rem;
+      transition:border-color .2s;
+    }
+    .edu-card:hover { border-color:var(--gold); }
+    .edu-degree { font-size:.97rem; font-weight:700; color:var(--white); }
+    .edu-school { font-size:.83rem; color:var(--gold); margin-top:3px; }
+    .edu-detail { font-size:.78rem; color:var(--muted); margin-top:5px; }
+    .edu-year {
+      font-size:.76rem; color:var(--gold);
+      background:var(--gold-dim); padding:4px 14px;
+      border-radius:20px; border:1px solid var(--border);
+      white-space:nowrap; align-self:flex-start;
+    }
+
+    /* ── ENGAGEMENTS ── */
+    .eng-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1.3rem; }
+    .eng-card {
+      background:var(--card); border:1px solid var(--border);
+      border-radius:12px; padding:1.5rem;
+      transition:border-color .25s, transform .2s;
+    }
+    .eng-card:hover { border-color:var(--gold); transform:translateY(-3px); }
+    .eng-icon {
+      width:40px; height:40px; border-radius:10px;
+      background:var(--gold-dim); margin-bottom:.9rem;
+      display:flex; align-items:center; justify-content:center;
+    }
+    .eng-icon svg { width:20px; height:20px; stroke:var(--gold); fill:none; stroke-width:1.8; }
+    .eng-title { font-size:.95rem; font-weight:700; color:var(--white); margin-bottom:2px; }
+    .eng-org { font-size:.78rem; color:var(--gold); margin-bottom:.6rem; }
+    .eng-desc { font-size:.8rem; color:var(--muted); line-height:1.6; }
+
+    /* ── CONTACT ── */
+    .contact-grid {
+      display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+      gap:1.1rem;
+    }
+    .ccard {
+      background:var(--card); border:1px solid var(--border);
+      border-radius:12px; padding:1.3rem;
+      text-align:center; text-decoration:none;
+      transition:border-color .2s, transform .15s;
+    }
+    .ccard:hover { border-color:var(--gold); transform:translateY(-3px); }
+    .ccard-icon {
+      width:40px; height:40px; border-radius:10px;
+      background:var(--gold-dim); margin:0 auto .7rem;
+      display:flex; align-items:center; justify-content:center;
+    }
+    .ccard-icon svg { width:20px; height:20px; stroke:var(--gold); fill:none; stroke-width:1.8; }
+    .ccard-label { font-size:.68rem; color:var(--muted); text-transform:uppercase; letter-spacing:1px; }
+    .ccard-val { font-size:.85rem; color:var(--white); font-weight:600; margin-top:3px; word-break:break-all; }
+
+    /* ── FOOTER ── */
+    footer {
+      position:relative; z-index:1;
+      text-align:center; padding:2rem;
+      border-top:1px solid var(--border);
+      color:var(--muted); font-size:.78rem;
+    }
+    footer span { color:var(--gold); }
+
+    /* ── REVEAL ── */
+    .reveal {
+      opacity:0; transform:translateY(28px);
+      transition: opacity .65s ease, transform .65s ease;
+    }
+    .reveal.vis { opacity:1; transform:translateY(0); }
+
+    /* ── RESPONSIVE ── */
+    @media(max-width:768px){
+      .about-grid { grid-template-columns:1fr; }
+      .nav-links { display:none; }
+      .hero-kpis { gap:1.8rem; }
+    }
+  </style>
 </head>
 <body>
+
+<canvas id="canvas-bg"></canvas>
+
+<!-- NAV -->
 <nav>
-<div class="logo">YBY</div>
-<ul class="nav-links">
-<li><a href="#about">À propos</a></li>
-<li><a href="#experience">Expériences</a></li>
-<li><a href="#skills">Compétences</a></li>
-<li><a href="#projects">Projets</a></li>
-<li><a href="#contact">Contact</a></li>
-</ul>
-<a href="mailto:youssoufbechirbeni1@gmail.com" class="btn btn-p" style="font-size:.82rem;padding:8px 18px">Me contacter</a>
+  <a href="#hero" class="nav-logo">YB.</a>
+  <ul class="nav-links">
+    <li><a href="#about">Profil</a></li>
+    <li><a href="#experience">Expérience</a></li>
+    <li><a href="#skills">Compétences</a></li>
+    <li><a href="#projects">Projets</a></li>
+    <li><a href="#education">Formation</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
 </nav>
-<section class="hero" id="home">
-<div class="hero-content">
-<div class="badge">🎓 Étudiant en alternance · IUT Bachelor MLT</div>
-<h1>Youssouf Bechir<br/><span>Youssouf</span></h1>
-<p class="hero-sub">Management Logistique &amp; Transport</p>
-<div class="tags">
-<span class="tag">🏢 ULOGISTIQUE · 2 ans</span>
-<span class="tag">📦 Supply Chain</span>
-<span class="tag">🚛 Transport &amp; Distribution</span>
-<span class="tag">📊 Gestion des flux</span>
-<span class="tag">📈 KPIs &amp; Performance</span>
-</div>
-<div class="cta">
-<a href="#projects" class="btn btn-p">Voir mes projets</a>
-<a href="#contact" class="btn btn-s">Me contacter</a>
-</div>
-</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">Candidat Master Supply Chain · Promotion 2026</div>
+    <h1 class="hero-name">Youssouf <span class="accent">Bechir</span></h1>
+    <p class="hero-role">Supply Chain &amp; Achats &nbsp;·&nbsp; Data-Driven Operations</p>
+    <p class="hero-location">Alternant @ U Logistique &nbsp;·&nbsp; Paris, Île-de-France &nbsp;·&nbsp; Disponible septembre 2026</p>
+    <div class="hero-cta">
+      <a href="#experience" class="btn btn-gold">Voir mon parcours</a>
+      <a href="#contact" class="btn btn-outline">Me contacter</a>
+    </div>
+    <div class="hero-kpis">
+      <div class="kpi">
+        <div class="kpi-num" data-count="2">0<sup>+</sup></div>
+        <div class="kpi-label">Ans d'alternance</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-num" data-count="98">0<sup>%</sup></div>
+        <div class="kpi-label">Taux de service</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-num" data-count="30">0</div>
+        <div class="kpi-label">Tournées / jour</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-num" data-count="3">0</div>
+        <div class="kpi-label">Langues maîtrisées</div>
+      </div>
+    </div>
+  </div>
 </section>
+
+<!-- ABOUT -->
 <section id="about">
-<div class="sec-header">
-<div class="sec-label">Qui suis-je ?</div>
-<h2 class="sec-title">À propos de <span>moi</span></h2>
-<div class="line"></div>
-</div>
-<div class="about-grid">
-<div class="about-text">
-<p>Je suis <strong>Youssouf Bechir Youssouf</strong>, étudiant en <strong>Bachelor Management Logistique et Transport</strong> à l'IUT, actuellement en alternance chez <strong>ULOGISTIQUE</strong> pour 2 ans.</p>
-<p>Mon parcours combine une <strong>formation académique rigoureuse</strong> avec une <strong>expérience pratique en entreprise</strong>, me donnant une vision à 360° des enjeux logistiques. Passionné par l'amélioration continue, les KPIs et l'optimisation des flux.</p>
-<p>Disponible, rigoureux et orienté résultats, je cherche à apporter une <strong>réelle valeur ajoutée</strong> dans chaque mission confiée.</p>
-</div>
-<div class="stats">
-<div class="stat"><div class="stat-n">2</div><div class="stat-l">Ans d'alternance</div></div>
-<div class="stat"><div class="stat-n">3</div><div class="stat-l">Ans de formation</div></div>
-<div class="stat"><div class="stat-n">10+</div><div class="stat-l">Projets réalisés</div></div>
-<div class="stat"><div class="stat-n">100%</div><div class="stat-l">Motivation</div></div>
-</div>
-</div>
+  <div class="section-wrap">
+    <div class="s-label reveal">About me · À propos</div>
+    <h2 class="s-title reveal">Profil <span class="a">&amp; Vision</span></h2>
+    <div class="s-bar reveal"></div>
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <p>Étudiant en <strong>BUT Management Logistique &amp; Transport</strong> à l'IUT Grand Ouest Normandie d'Alençon (Promo 2026), spécialisation Supply Chain Connectée.</p>
+        <p>Deux ans d'alternance chez <strong>U Logistique</strong> à Caen m'ont permis de piloter quotidiennement 25 à 30 tournées vers plus de 35 points de vente, tout en construisant des outils de reporting KPI sous Excel, VBA et Power BI.</p>
+        <p>Mon parcours inclut une expérience internationale marquante : la <strong>coordination de la supply chain de 5 forages humanitaires</strong> soutenus par l'UNICEF au Tchad, de la sélection fournisseurs jusqu'au suivi terrain.</p>
+        <p>Je recherche une alternance <strong>Achats / Supply Chain en Master</strong> à partir de septembre 2026, rythme 3 semaines entreprise / 1 semaine école.</p>
+      </div>
+      <div class="about-cards reveal">
+        <div class="acard">
+          <div class="acard-icon">
+            <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+          </div>
+          <div class="acard-body">
+            <strong>Pilotage opérationnel</strong>
+            <span>25–30 tournées/jour · 35+ points de vente · TMS/WMS</span>
+          </div>
+        </div>
+        <div class="acard">
+          <div class="acard-icon">
+            <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          </div>
+          <div class="acard-body">
+            <strong>Data &amp; Reporting</strong>
+            <span>Excel VBA · Power BI · Tableaux de bord KPI</span>
+          </div>
+        </div>
+        <div class="acard">
+          <div class="acard-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </div>
+          <div class="acard-body">
+            <strong>Dimension internationale</strong>
+            <span>Tchad · Roissy-CDG · Supply Chain humanitaire &amp; pétrolière</span>
+          </div>
+        </div>
+        <div class="acard">
+          <div class="acard-icon">
+            <svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+          </div>
+          <div class="acard-body">
+            <strong>Objectif Master</strong>
+            <span>Grandes écoles · Achats / Supply Chain · Sept. 2026</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
+
+<!-- EXPERIENCE -->
 <section id="experience">
-<div class="sec-header">
-<div class="sec-label">Mon parcours</div>
-<h2 class="sec-title">Expériences <span>professionnelles</span></h2>
-<div class="line"></div>
-</div>
-<div class="timeline">
-<div class="ti">
-<div class="ti-date">2023 – Présent · Alternance</div>
-<div class="ti-card">
-<h3>Alternant Logistique</h3>
-<div class="ti-co">🏢 ULOGISTIQUE</div>
-<p>Gestion et coordination des flux entrants/sortants, suivi des KPIs opérationnels, optimisation des processus d'entrepôt, coordination transporteurs, interface clients, gestion documentaire et amélioration continue.</p>
-<div class="ti-tags"><span class="tt">Gestion de stock</span><span class="tt">Transport</span><span class="tt">KPIs</span><span class="tt">WMS</span><span class="tt">Amélioration continue</span></div>
-</div>
-</div>
-<div class="ti">
-<div class="ti-date">2022 – 2023 · Stages</div>
-<div class="ti-card">
-<h3>Expériences Terrain</h3>
-<div class="ti-co">📦 Secteur Logistique &amp; Transport</div>
-<p>Immersion opérationnelle : préparation de commandes, gestion de stock, inventaires, réceptions et expéditions. Découverte concrète des métiers de la supply chain et de l'entrepôt.</p>
-<div class="ti-tags"><span class="tt">Entrepôt</span><span class="tt">Préparation commandes</span><span class="tt">Stock</span><span class="tt">Réception</span></div>
-</div>
-</div>
-<div class="ti">
-<div class="ti-date">2022 – 2025 · Formation</div>
-<div class="ti-card">
-<h3>Bachelor Management Logistique &amp; Transport</h3>
-<div class="ti-co">🎓 IUT</div>
-<p>Formation complète : supply chain, transport multimodal, gestion des opérations, droit du transport, management d'équipe. Nombreux projets sur des problématiques réelles du secteur.</p>
-<div class="ti-tags"><span class="tt">Supply Chain</span><span class="tt">Droit Transport</span><span class="tt">Management</span><span class="tt">Gestion de projet</span></div>
-</div>
-</div>
-</div>
+  <div class="section-wrap">
+    <div class="s-label reveal">Work experience · Parcours professionnel</div>
+    <h2 class="s-title reveal">Expériences <span class="a">Professionnelles</span></h2>
+    <div class="s-bar reveal"></div>
+    <div class="timeline">
+
+      <div class="titem reveal">
+        <div class="tdot"></div>
+        <div class="thead">
+          <div class="trole">Alternant — Pilotage des Flux Transport</div>
+          <div class="tdate">Sept. 2024 – Août 2026</div>
+        </div>
+        <div class="tcompany">U Logistique · Caen, France</div>
+        <ul class="tpoints">
+          <li>Pilotage de <strong>25 à 30 tournées/jour</strong> (frais &amp; surgelés) vers 35+ magasins U — taux de service maintenu à <strong>plus de 98 %</strong></li>
+          <li>Conception et automatisation de <strong>tableaux de bord KPI</strong> sous Excel, VBA et Power BI (coûts, volumes, qualité de service)</li>
+          <li>Administration de trois outils TMS/WMS — <strong>Storeway, Gedmouv, WaryMe</strong> — déploiement, formation des équipes, support incidents</li>
+          <li>Production de reportings hebdomadaires pour le management et suivi des écarts</li>
+        </ul>
+      </div>
+
+      <div class="titem reveal">
+        <div class="tdot"></div>
+        <div class="thead">
+          <div class="trole">Stagiaire — Achats &amp; Supply Chain</div>
+          <div class="tdate">Juin – Août 2024</div>
+        </div>
+        <div class="tcompany">Alternative Group Investment (AGIT) · N'Djaména, Tchad</div>
+        <ul class="tpoints">
+          <li>Pilotage complet de la supply chain de <strong>5 forages d'eau</strong> soutenus par l'UNICEF dans une zone d'accueil de réfugiés soudanais</li>
+          <li>Sélection fournisseurs, passation de commandes et suivi terrain — achats de <strong>pylônes Huawei</strong> et matériaux de construction</li>
+          <li>Coordination entre fournisseurs internationaux, transporteurs locaux et équipes terrain en contexte multi-parties complexe</li>
+        </ul>
+      </div>
+
+      <div class="titem reveal">
+        <div class="tdot"></div>
+        <div class="thead">
+          <div class="trole">Stagiaire — Transport International &amp; Commerce Extérieur</div>
+          <div class="tdate">Mai 2024</div>
+        </div>
+        <div class="tcompany">World Transport Easy · Roissy-CDG, France</div>
+        <ul class="tpoints">
+          <li>Suivi de flux import/export maritime &amp; aérien — gestion documentaire : <strong>Incoterms, documents douaniers</strong></li>
+          <li>Analyse des écarts de facturation transporteurs et mise à jour de la base de données clients</li>
+        </ul>
+      </div>
+
+      <div class="titem reveal">
+        <div class="tdot"></div>
+        <div class="thead">
+          <div class="trole">Stagiaire — Logistique Distribution</div>
+          <div class="tdate">Juin – Août 2023</div>
+        </div>
+        <div class="tcompany">Mosaic International (Peschaud-Perenco) · N'Djaména, Tchad</div>
+        <ul class="tpoints">
+          <li>Coordination logistique sur projets <strong>pétroliers</strong> — suivi des volumes, délais et coûts de distribution</li>
+          <li>Reporting de performance destiné aux chefs de projets et à la direction</li>
+        </ul>
+      </div>
+
+      <div class="titem reveal">
+        <div class="tdot"></div>
+        <div class="thead">
+          <div class="trole">Assistant Administratif &amp; Commercial — CDD</div>
+          <div class="tdate">Déc. 2021 – Fév. 2022</div>
+        </div>
+        <div class="tcompany">Hotel Service Plus (HSP) · Bagnolet, France</div>
+        <ul class="tpoints">
+          <li>Gestion des dossiers clients, mise à jour bases de données, suivi tableaux de bord opérationnels</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
 </section>
+
+<!-- SKILLS -->
 <section id="skills">
-<div class="sec-header">
-<div class="sec-label">Ce que je sais faire</div>
-<h2 class="sec-title">Mes <span>compétences</span></h2>
-<div class="line"></div>
-</div>
-<div class="skills-grid">
-<div class="sc">
-<div class="sc-title"><div class="sc-icon">📦</div>Logistique &amp; Supply Chain</div>
-<div class="si"><span class="si-name">Gestion de stock</span><div class="si-bar"><div class="si-fill" style="width:90%"></div></div><span class="si-pct">90%</span></div>
-<div class="si"><span class="si-name">Flux entrants/sortants</span><div class="si-bar"><div class="si-fill" style="width:85%"></div></div><span class="si-pct">85%</span></div>
-<div class="si"><span class="si-name">WMS / Outils entrepôt</span><div class="si-bar"><div class="si-fill" style="width:75%"></div></div><span class="si-pct">75%</span></div>
-<div class="si"><span class="si-name">Amélioration continue</span><div class="si-bar"><div class="si-fill" style="width:80%"></div></div><span class="si-pct">80%</span></div>
-</div>
-<div class="sc">
-<div class="sc-title"><div class="sc-icon">🚛</div>Transport &amp; Distribution</div>
-<div class="si"><span class="si-name">Planification transport</span><div class="si-bar"><div class="si-fill" style="width:80%"></div></div><span class="si-pct">80%</span></div>
-<div class="si"><span class="si-name">Relation transporteurs</span><div class="si-bar"><div class="si-fill" style="width:85%"></div></div><span class="si-pct">85%</span></div>
-<div class="si"><span class="si-name">Droit du transport</span><div class="si-bar"><div class="si-fill" style="width:70%"></div></div><span class="si-pct">70%</span></div>
-<div class="si"><span class="si-name">Incoterms &amp; Douane</span><div class="si-bar"><div class="si-fill" style="width:65%"></div></div><span class="si-pct">65%</span></div>
-</div>
-<div class="sc">
-<div class="sc-title"><div class="sc-icon">💼</div>Management &amp; Outils</div>
-<div class="si"><span class="si-name">Microsoft Excel</span><div class="si-bar"><div class="si-fill" style="width:80%"></div></div><span class="si-pct">80%</span></div>
-<div class="si"><span class="si-name">Gestion de projet</span><div class="si-bar"><div class="si-fill" style="width:75%"></div></div><span class="si-pct">75%</span></div>
-<div class="si"><span class="si-name">Communication</span><div class="si-bar"><div class="si-fill" style="width:90%"></div></div><span class="si-pct">90%</span></div>
-<div class="si"><span class="si-name">Travail en équipe</span><div class="si-bar"><div class="si-fill" style="width:95%"></div></div><span class="si-pct">95%</span></div>
-</div>
-</div>
+  <div class="section-wrap">
+    <div class="s-label reveal">Skills · Compétences</div>
+    <h2 class="s-title reveal">Outils <span class="a">&amp; Expertises</span></h2>
+    <div class="s-bar reveal"></div>
+    <div class="skills-grid">
+
+      <div class="skill-card reveal">
+        <div class="sc-header">
+          <div class="sc-icon"><svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
+          <div class="sc-title">Pilotage des Flux</div>
+        </div>
+        <div class="tags">
+          <span class="tag">Gestion de tournées</span>
+          <span class="tag">Transport</span>
+          <span class="tag">Approvisionnement</span>
+          <span class="tag">Gestion des stocks</span>
+          <span class="tag">Incoterms</span>
+          <span class="tag">Sourcing Achats</span>
+        </div>
+      </div>
+
+      <div class="skill-card reveal">
+        <div class="sc-header">
+          <div class="sc-icon"><svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+          <div class="sc-title">Analyse &amp; Reporting</div>
+        </div>
+        <div class="tags">
+          <span class="tag">Excel Avancé</span>
+          <span class="tag">VBA</span>
+          <span class="tag">Power BI</span>
+          <span class="tag">KPI &amp; Tableaux de bord</span>
+          <span class="tag">SQL (notions)</span>
+          <span class="tag">Python (notions)</span>
+        </div>
+      </div>
+
+      <div class="skill-card reveal">
+        <div class="sc-header">
+          <div class="sc-icon"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+          <div class="sc-title">Outils Métier</div>
+        </div>
+        <div class="tags">
+          <span class="tag">Storeway</span>
+          <span class="tag">Gedmouv</span>
+          <span class="tag">WaryMe</span>
+          <span class="tag">AS400</span>
+          <span class="tag">Sinari</span>
+          <span class="tag">TMS / WMS</span>
+        </div>
+      </div>
+
+      <div class="skill-card reveal">
+        <div class="sc-header">
+          <div class="sc-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <div class="sc-title">Soft Skills</div>
+        </div>
+        <div class="tags">
+          <span class="tag">Autonomie</span>
+          <span class="tag">Rigueur analytique</span>
+          <span class="tag">Gestion multi-parties</span>
+          <span class="tag">Amélioration continue</span>
+          <span class="tag">Coordination terrain</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Languages -->
+    <div style="margin-top:3rem;" class="reveal">
+      <div class="s-label" style="margin-bottom:.5rem;">Languages · Langues</div>
+    </div>
+    <div class="lang-row reveal">
+      <div class="lang-card">
+        <div class="flag">🇫🇷</div>
+        <div><div class="lang-name">Français</div><div class="lang-lvl">Natif · Native</div></div>
+      </div>
+      <div class="lang-card">
+        <div class="flag">🇸🇦</div>
+        <div><div class="lang-name">Arabe</div><div class="lang-lvl">C1 · Avancé</div></div>
+      </div>
+      <div class="lang-card">
+        <div class="flag">🇬🇧</div>
+        <div><div class="lang-name">Anglais</div><div class="lang-lvl">B2 · Courant</div></div>
+      </div>
+    </div>
+  </div>
 </section>
+
+<!-- PROJECTS -->
 <section id="projects">
-<div class="sec-header">
-<div class="sec-label">Mes réalisations</div>
-<h2 class="sec-title">Projets <span>&amp; Travaux</span></h2>
-<div class="line"></div>
-</div>
-<div class="projects-grid">
-<div class="pc"><div class="pc-icon">📊</div><div class="pc-type">Académique · IUT</div><div class="pc-title">Audit de chaîne logistique</div><p class="pc-desc">Analyse complète d'une chaîne d'approvisionnement : cartographie des flux, goulots d'étranglement, calcul des coûts et recommandations d'amélioration.</p><div class="pc-footer"><div class="pc-stack"><span class="st">Audit</span><span class="st">Supply Chain</span><span class="st">Excel</span></div><span class="done">✅ Terminé</span></div></div>
-<div class="pc"><div class="pc-icon">🚛</div><div class="pc-type">Académique · IUT</div><div class="pc-title">Optimisation des tournées de livraison</div><p class="pc-desc">Modélisation d'une tournée optimisée avec réduction des coûts kilométriques et délais. Application des algorithmes de routage.</p><div class="pc-footer"><div class="pc-stack"><span class="st">Transport</span><span class="st">Optimisation</span><span class="st">Modélisation</span></div><span class="done">✅ Terminé</span></div></div>
-<div class="pc"><div class="pc-icon">📦</div><div class="pc-type">Académique · IUT</div><div class="pc-title">Politique de gestion des stocks</div><p class="pc-desc">Politique de réapprovisionnement complète : analyse ABC/XYZ, stock de sécurité, point de commande et quantité économique de commande (Wilson).</p><div class="pc-footer"><div class="pc-stack"><span class="st">Stocks</span><span class="st">ABC</span><span class="st">Wilson</span></div><span class="done">✅ Terminé</span></div></div>
-<div class="pc"><div class="pc-icon">📈</div><div class="pc-type">Alternance · ULOGISTIQUE</div><div class="pc-title">Tableau de bord KPIs Entrepôt</div><p class="pc-desc">Conception d'un tableau de bord de suivi des KPIs (taux de service, productivité picking) pour piloter l'activité opérationnelle.</p><div class="pc-footer"><div class="pc-stack"><span class="st">KPIs</span><span class="st">Excel</span><span class="st">Reporting</span></div><span class="wip">🔄 En cours</span></div></div>
-<div class="pc"><div class="pc-icon">🔄</div><div class="pc-type">Alternance · ULOGISTIQUE</div><div class="pc-title">Optimisation des flux entrepôt</div><p class="pc-desc">Réorganisation des zones de stockage pour réduire les distances de picking. Plan d'implantation basé sur la rotation ABC des produits.</p><div class="pc-footer"><div class="pc-stack"><span class="st">Entrepôt</span><span class="st">Lean</span><span class="st">5S</span></div><span class="wip">🔄 En cours</span></div></div>
-<div class="pc"><div class="pc-icon">📋</div><div class="pc-type">Académique · IUT</div><div class="pc-title">Business Case Externalisation Logistique</div><p class="pc-desc">Business case complet pour l'externalisation d'une fonction logistique : make-or-buy, cahier des charges et grille d'évaluation des 3PL.</p><div class="pc-footer"><div class="pc-stack"><span class="st">Make or Buy</span><span class="st">3PL</span><span class="st">Business Case</span></div><span class="done">✅ Terminé</span></div></div>
-</div>
+  <div class="section-wrap">
+    <div class="s-label reveal">Projects · Projets GitHub</div>
+    <h2 class="s-title reveal">Réalisations <span class="a">Académiques</span></h2>
+    <div class="s-bar reveal"></div>
+    <div class="projects-grid">
+
+      <div class="proj-card reveal">
+        <div class="proj-top">
+          <div class="proj-icon"><svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+          <a class="proj-link" href="https://github.com/Youssouf55/tableau-de-bord-kpis-entrepot" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+        </div>
+        <div class="proj-title">Dashboard KPIs Entrepôt</div>
+        <div class="proj-desc">Tableau de bord Power BI / Excel automatisé pour le suivi des indicateurs clés : taux de service, productivité picking, écarts de stock. Conçu en conditions réelles d'alternance chez U Logistique.</div>
+        <div class="proj-tags">
+          <span class="tag">Excel</span><span class="tag">Power BI</span><span class="tag">VBA</span><span class="tag">KPI</span>
+        </div>
+      </div>
+
+      <div class="proj-card reveal">
+        <div class="proj-top">
+          <div class="proj-icon"><svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></div>
+          <a class="proj-link" href="https://github.com/Youssouf55/business-case-externalisation-logistique" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+        </div>
+        <div class="proj-title">Business Case — Externalisation 3PL</div>
+        <div class="proj-desc">Étude complète make-or-buy pour l'externalisation logistique : cahier des charges, grille multicritères d'évaluation des prestataires 3PL, analyse financière et recommandation stratégique.</div>
+        <div class="proj-tags">
+          <span class="tag">Achats</span><span class="tag">Make-or-Buy</span><span class="tag">3PL</span><span class="tag">Analyse financière</span>
+        </div>
+      </div>
+
+      <div class="proj-card reveal">
+        <div class="proj-top">
+          <div class="proj-icon"><svg viewBox="0 0 24 24"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></div>
+          <a class="proj-link" href="https://github.com/Youssouf55/gestion-stock-politique-approvisionnement" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+        </div>
+        <div class="proj-title">Politique de Réapprovisionnement</div>
+        <div class="proj-desc">Modélisation complète : segmentation ABC/XYZ, calcul du stock de sécurité, point de commande dynamique et quantité économique de commande selon le modèle de Wilson.</div>
+        <div class="proj-tags">
+          <span class="tag">ABC/XYZ</span><span class="tag">Modèle Wilson</span><span class="tag">Stock de sécurité</span><span class="tag">Excel</span>
+        </div>
+      </div>
+
+      <div class="proj-card reveal">
+        <div class="proj-top">
+          <div class="proj-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+          <a class="proj-link" href="https://github.com/Youssouf55/optimisation-tournees-livraison" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+        </div>
+        <div class="proj-title">Optimisation des Tournées de Livraison</div>
+        <div class="proj-desc">Modélisation et optimisation de tournées multi-dépôts avec réduction des coûts kilométriques et délais de livraison. Application d'algorithmes de routage issus de la recherche opérationnelle.</div>
+        <div class="proj-tags">
+          <span class="tag">Routage</span><span class="tag">Optimisation</span><span class="tag">Transport</span><span class="tag">R.O.</span>
+        </div>
+      </div>
+
+      <div class="proj-card reveal">
+        <div class="proj-top">
+          <div class="proj-icon"><svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
+          <a class="proj-link" href="https://github.com/Youssouf55/audit-chaine-logistique" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+        </div>
+        <div class="proj-title">Audit de Chaîne Logistique</div>
+        <div class="proj-desc">Analyse complète d'une supply chain : cartographie des flux (VSM), identification des goulots d'étranglement, calcul des coûts cachés et plan d'actions correctives priorisé.</div>
+        <div class="proj-tags">
+          <span class="tag">VSM</span><span class="tag">Lean</span><span class="tag">Audit SC</span><span class="tag">Amélioration continue</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
 </section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-wrap">
+    <div class="s-label reveal">Education · Formation</div>
+    <h2 class="s-title reveal">Parcours <span class="a">Académique</span></h2>
+    <div class="s-bar reveal"></div>
+    <div class="edu-list">
+      <div class="edu-card reveal">
+        <div>
+          <div class="edu-degree">BUT Management Logistique &amp; Transport</div>
+          <div class="edu-school">IUT Grand Ouest Normandie · Alençon</div>
+          <div class="edu-detail">Parcours Supply Chain Connectée — Pilotage des flux, transport, approvisionnement, amélioration continue, data analyse</div>
+        </div>
+        <div class="edu-year">2023 – 2026</div>
+      </div>
+      <div class="edu-card reveal">
+        <div>
+          <div class="edu-degree">Classe Préparatoire Économique &amp; Commerciale</div>
+          <div class="edu-school">Lycée Jean-Baptiste Corot</div>
+          <div class="edu-detail">Économie, mathématiques appliquées, méthodologie — culture de l'analyse structurée et du raisonnement quantitatif</div>
+        </div>
+        <div class="edu-year">2022 – 2023</div>
+      </div>
+      <div class="edu-card reveal">
+        <div>
+          <div class="edu-degree">Baccalauréat Scientifique</div>
+          <div class="edu-school">Lycée Marguerite Yourcenar · Morangis</div>
+        </div>
+        <div class="edu-year">2020 – 2022</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ENGAGEMENTS -->
+<section id="engagements">
+  <div class="section-wrap">
+    <div class="s-label reveal">Volunteering · Engagements</div>
+    <h2 class="s-title reveal">Associations <span class="a">&amp; Initiatives</span></h2>
+    <div class="s-bar reveal"></div>
+    <div class="eng-grid">
+      <div class="eng-card reveal">
+        <div class="eng-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+        <div class="eng-title">Membre actif</div>
+        <div class="eng-org">IRIS — Institut de Relations Internationales et Stratégiques · 2025–présent</div>
+        <div class="eng-desc">Suivi des travaux de réflexion stratégique sur les enjeux géopolitiques et économiques mondiaux — directement utile pour appréhender les risques supply chain à l'international.</div>
+      </div>
+      <div class="eng-card reveal">
+        <div class="eng-icon"><svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></div>
+        <div class="eng-title">Membre actif</div>
+        <div class="eng-org">Supply Chain+ · Association étudiante · 2024–présent</div>
+        <div class="eng-desc">Participation aux événements professionnels et conférences sectorielles, veille sur les tendances supply chain, développement du réseau professionnel.</div>
+      </div>
+      <div class="eng-card reveal">
+        <div class="eng-icon"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+        <div class="eng-title">Bénévole logistique</div>
+        <div class="eng-org">UNICEF France · 2023–présent</div>
+        <div class="eng-desc">Coordination logistique du concert de Soprano (Ambassadeur UNICEF) au Stade de France — gestion des flux de public, organisation des accès et coordination des équipes bénévoles.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
 <section id="contact">
-<div class="sec-header">
-<div class="sec-label">Travaillons ensemble</div>
-<h2 class="sec-title">Me <span>contacter</span></h2>
-<div class="line"></div>
-</div>
-<div class="contact-wrap">
-<div class="contact-info">
-<p>Que vous soyez recruteur, partenaire ou simplement curieux de mon parcours, je réponds toujours rapidement !</p>
-<div class="ci-wrap">
-<a href="mailto:youssoufbechirbeni1@gmail.com" class="ci"><div class="ci-icon"><i class="fas fa-envelope"></i></div><div class="ci-text"><span>Email</span><strong>youssoufbechirbeni1@gmail.com</strong></div></a>
-<a href="https://linkedin.com/in/youssouf-bechir-youssouf" target="_blank" class="ci"><div class="ci-icon"><i class="fab fa-linkedin-in"></i></div><div class="ci-text"><span>LinkedIn</span><strong>Youssouf Bechir Youssouf</strong></div></a>
-<a href="https://github.com/Youssouf55" target="_blank" class="ci"><div class="ci-icon"><i class="fab fa-github"></i></div><div class="ci-text"><span>GitHub</span><strong>@Youssouf55</strong></div></a>
-</div>
-</div>
-<div class="contact-card">
-<div class="big">🎯</div>
-<h4>Ouvert aux opportunités</h4>
-<p>Actuellement en alternance, je suis ouvert aux échanges avec des professionnels du secteur.</p>
-<div class="open">● Disponible à partir de 2025</div><br/><br/>
-<a href="mailto:youssoufbechirbeni1@gmail.com" class="btn btn-p" style="display:inline-block;width:100%;text-align:center">✉️ Envoyer un message</a>
-</div>
-</div>
+  <div class="section-wrap" style="max-width:800px;">
+    <div class="s-label reveal">Contact · Get in touch</div>
+    <h2 class="s-title reveal">Me <span class="a">Contacter</span></h2>
+    <div class="s-bar reveal"></div>
+    <p class="reveal" style="text-align:center;color:var(--muted);margin-bottom:2.2rem;font-size:.94rem;">
+      Disponible pour une alternance Achats / Supply Chain en Master à partir de <strong style="color:var(--white)">septembre 2026</strong>.<br/>
+      N'hésitez pas à me contacter.
+    </p>
+    <div class="contact-grid reveal">
+      <a href="tel:0663037034" class="ccard">
+        <div class="ccard-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.23h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.4a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7a2 2 0 0 1 1.72 2.02z"/></svg></div>
+        <div class="ccard-label">Téléphone</div>
+        <div class="ccard-val">06 63 03 70 34</div>
+      </a>
+      <a href="mailto:youssoufbechirbeni1@gmail.com" class="ccard">
+        <div class="ccard-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+        <div class="ccard-label">Email</div>
+        <div class="ccard-val">youssoufbechirbeni1<br>@gmail.com</div>
+      </a>
+      <a href="https://www.linkedin.com/in/" target="_blank" rel="noopener" class="ccard">
+        <div class="ccard-icon"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></div>
+        <div class="ccard-label">LinkedIn</div>
+        <div class="ccard-val">Voir le profil</div>
+      </a>
+      <a href="https://github.com/Youssouf55" target="_blank" rel="noopener" class="ccard">
+        <div class="ccard-icon"><svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg></div>
+        <div class="ccard-label">GitHub</div>
+        <div class="ccard-val">Youssouf55</div>
+      </a>
+    </div>
+  </div>
 </section>
+
 <footer>
-<p>© 2024 <strong>Youssouf Bechir Youssouf</strong> · Bachelor Management Logistique &amp; Transport</p>
-<p style="margin-top:.5rem">Fait avec ❤️ et passion pour la logistique</p>
+  <p>© 2026 <span>Youssouf Bechir</span> &nbsp;·&nbsp; Supply Chain &amp; Achats &nbsp;·&nbsp; Paris, Île-de-France</p>
 </footer>
+
+<script>
+/* ── CANVAS BACKGROUND ── */
+(function(){
+  const canvas = document.getElementById('canvas-bg');
+  const ctx = canvas.getContext('2d');
+  let W, H, nodes = [];
+  const N = 55, MAX_DIST = 140;
+
+  function resize(){
+    W = canvas.width  = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  class Node {
+    constructor(){
+      this.x  = Math.random()*W;
+      this.y  = Math.random()*H;
+      this.vx = (Math.random()-.5)*.35;
+      this.vy = (Math.random()-.5)*.35;
+      this.r  = Math.random()*1.8+.8;
+    }
+    update(){
+      this.x += this.vx; this.y += this.vy;
+      if(this.x<0||this.x>W) this.vx*=-1;
+      if(this.y<0||this.y>H) this.vy*=-1;
+    }
+  }
+
+  for(let i=0;i<N;i++) nodes.push(new Node());
+
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    for(let i=0;i<N;i++){
+      nodes[i].update();
+      for(let j=i+1;j<N;j++){
+        const dx=nodes[i].x-nodes[j].x, dy=nodes[i].y-nodes[j].y;
+        const d=Math.sqrt(dx*dx+dy*dy);
+        if(d<MAX_DIST){
+          ctx.beginPath();
+          ctx.strokeStyle=`rgba(200,168,75,${(1-d/MAX_DIST)*.25})`;
+          ctx.lineWidth=.7;
+          ctx.moveTo(nodes[i].x,nodes[i].y);
+          ctx.lineTo(nodes[j].x,nodes[j].y);
+          ctx.stroke();
+        }
+      }
+    }
+    for(const n of nodes){
+      ctx.beginPath();
+      ctx.arc(n.x,n.y,n.r,0,Math.PI*2);
+      ctx.fillStyle='rgba(200,168,75,0.5)';
+      ctx.fill();
+    }
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+/* ── SCROLL REVEAL ── */
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){ e.target.classList.add('vis'); observer.unobserve(e.target); }
+  });
+},{threshold:.08,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+/* ── COUNT-UP KPIs ── */
+function countUp(el,target,suffix){
+  let cur=0;
+  const sup = el.querySelector('sup');
+  const step=Math.max(1,Math.floor(target/60));
+  const id=setInterval(()=>{
+    cur=Math.min(cur+step,target);
+    el.innerHTML=cur+(sup?`<sup>${sup.innerHTML}</sup>`:'');
+    if(cur>=target) clearInterval(id);
+  },22);
+}
+const io2=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      const el=e.target, t=parseInt(el.dataset.count), sup=el.querySelector('sup');
+      const s=sup?sup.innerHTML:'';
+      countUp(el,t,s);
+      io2.unobserve(el);
+    }
+  });
+},{threshold:.5});
+document.querySelectorAll('[data-count]').forEach(el=>io2.observe(el));
+</script>
 </body>
-  </html>
+</html>
