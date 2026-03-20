@@ -195,6 +195,7 @@ footer span{color:var(--gold)}
 .reveal{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease}
 .reveal.vis{opacity:1;transform:translateY(0)}
 @media(max-width:768px){.about-grid{grid-template-columns:1fr}.nav-links{display:none}.hero-kpis{gap:1.8rem}.cv-card{flex-direction:column}}
+.projet-intro{max-width:700px;font-size:1.1rem;color:var(--text-muted);margin:1.2rem 0 2.8rem;line-height:1.65}.projet-facts{display:flex;flex-direction:column;gap:1.4rem;max-width:860px}.projet-fact{display:flex;align-items:flex-start;gap:2rem;padding:1.5rem 1.8rem;background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:10px;transition:border-color .3s}.projet-fact:hover{border-color:var(--gold)}.fact-num{font-size:1.8rem;font-weight:800;color:var(--gold);opacity:.5;min-width:2.5rem;padding-top:.1rem;line-height:1}.fact-body{flex:1}.fact-title{font-size:1rem;font-weight:700;color:var(--text);margin-bottom:.4rem;letter-spacing:.02em}.fact-desc{font-size:.92rem;color:var(--text-muted);line-height:1.6}@media(max-width:580px){.projet-fact{flex-direction:column;gap:.8rem}}
 </style>
 </head>
 <body>
@@ -243,28 +244,35 @@ footer span{color:var(--gold)}
 <!-- POSTURE PROJET -->
 <div class="projet-strip">
   <div class="projet-strip-inner">
-    <div class="s-label reveal">Profil · Approche</div>
-    <h2 class="s-title reveal">Pilote de <span class="a">bout en bout</span>, pas simple exécutant</h2>
-    <div class="s-bar reveal"></div>
-    <div class="projet-pillars">
-      <div class="pillar reveal">
-        <div class="pillar-num">01 · Vision globale</div>
-        <div class="pillar-title">Du diagnostic à la décision</div>
-        <div class="pillar-desc">Je ne me contente pas de faire tourner les flux — j'analyse les données, identifie les dysfonctionnements et <strong>propose des plans d'action concrets</strong>. Chez U Logistique, j'ai structuré le reporting KPI de A à Z, de la collecte de données brutes jusqu'aux recommandations pour le management.</div>
+    <div class="s-label reveal">Profil</div>
+    <h2 class="s-title reveal">Un profil de <span class="a">chef de projet</span>,<br>construit en dehors des cours</h2>
+    <p class="projet-intro reveal">Classes prépa, missions terrain, lectures métier — j’ai construit une vision supply chain complète, capable de piloter de la stratégie à l’exécution.</p>
+    <div class="projet-facts">
+      <div class="projet-fact reveal">
+        <span class="fact-num">01</span>
+        <div class="fact-body">
+          <div class="fact-title">Méthode et rigueur</div>
+          <div class="fact-desc">Deux ans de CPGE m’ont appris à décomposer un problème complexe et à structurer une analyse solide. Cette rigueur, je l’applique directement dans la conduite de projet.</div>
+        </div>
       </div>
-      <div class="pillar reveal">
-        <div class="pillar-num">02 · Conduite de projet</div>
-        <div class="pillar-title">Coordination multi-parties & livrables</div>
-        <div class="pillar-desc">Au Tchad (mission UNICEF), j'ai piloté seul la supply chain complète d'un projet de forages humanitaires : <strong>sélection fournisseurs, passation de commandes, coordination terrain, suivi livraison</strong>. Un projet = un chef de projet, pas une chaîne de validation.</div>
+      <div class="projet-fact reveal">
+        <span class="fact-num">02</span>
+        <div class="fact-body">
+          <div class="fact-title">Pilotage terrain réel</div>
+          <div class="fact-desc">Tchad (UNICEF), U Logistique : des projets à enjeux où j’ai coordonné seul — sélection fournisseurs, planning, livraison. Pas de mise en situation, de vraies responsabilités.</div>
+        </div>
       </div>
-      <div class="pillar reveal">
-        <div class="pillar-num">03 · Amélioration continue</div>
-        <div class="pillar-title">Construire des solutions qui durent</div>
-        <div class="pillar-desc">Mes livrables ne sont pas des rapports ponctuels : outils automatisés sous VBA, dashboards Power BI réutilisables, <strong>systèmes qui continuent de produire de la valeur après mon passage</strong>. Chaque projet est pensé pour être repris, amélioré et scalé.</div>
+      <div class="projet-fact reveal">
+        <span class="fact-num">03</span>
+        <div class="fact-body">
+          <div class="fact-title">Maîtrise du secteur</div>
+          <div class="fact-desc">12 ouvrages supply chain lus en dehors du cursus, veille sectorielle active. La connaissance métier se construit au quotidien, pas uniquement en amphi.</div>
+        </div>
       </div>
     </div>
   </div>
 </div>
+
 
 <!-- ABOUT -->
 <section id="about">
