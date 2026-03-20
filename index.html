@@ -149,6 +149,52 @@ footer span{color:var(--gold)}
 .reveal{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease}
 .reveal.vis{opacity:1;transform:translateY(0)}
 @media(max-width:768px){.about-grid{grid-template-columns:1fr}.nav-links{display:none}.hero-kpis{gap:1.8rem}.cv-card{flex-direction:column}}
+/* POSTURE PROJET */
+.projet-strip{position:relative;z-index:1;background:linear-gradient(135deg,rgba(200,168,75,.07),transparent);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.projet-strip-inner{max-width:1080px;margin:0 auto;padding:70px clamp(1.5rem,5vw,4rem)}
+.projet-pillars{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:1.6rem;margin-top:2.8rem}
+.pillar{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.8rem;transition:border-color .25s,transform .2s;position:relative;overflow:hidden}
+.pillar::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),transparent);border-radius:14px 14px 0 0}
+.pillar:hover{border-color:rgba(200,168,75,.5);transform:translateY(-4px)}
+.pillar-num{font-size:.65rem;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--gold);opacity:.6;margin-bottom:.7rem}
+.pillar-title{font-size:1.05rem;font-weight:800;color:var(--white);margin-bottom:.6rem;line-height:1.25}
+.pillar-desc{font-size:.83rem;color:var(--muted);line-height:1.65}
+.pillar-desc strong{color:var(--text)}
+/* LECTURES */
+.books-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1.1rem}
+.book-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.3rem 1.4rem;transition:border-color .2s,transform .15s;display:flex;flex-direction:column;gap:.4rem}
+.book-card:hover{border-color:var(--gold);transform:translateY(-3px)}
+.book-title{font-size:.88rem;font-weight:700;color:var(--white);line-height:1.3}
+.book-author{font-size:.75rem;color:var(--gold);font-weight:600}
+.book-tag{display:inline-block;margin-top:.3rem;font-size:.67rem;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--muted);background:var(--gold-dim);padding:2px 10px;border-radius:20px;border:1px solid rgba(200,168,75,.15)}
+/* TERRAIN & VOYAGES */
+.terrain-sub{margin-bottom:3.5rem}
+.terrain-sub-title{font-size:.7rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);margin-bottom:1.4rem;display:flex;align-items:center;gap:.7rem}
+.terrain-sub-title::after{content:'';flex:1;height:1px;background:var(--border)}
+.visit-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:1.2rem}
+.visit-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.4rem 1.5rem;transition:border-color .25s,transform .2s;display:flex;flex-direction:column;gap:.6rem}
+.visit-card:hover{border-color:var(--gold);transform:translateY(-3px)}
+.visit-header{display:flex;align-items:flex-start;gap:.9rem}
+.visit-icon{width:38px;height:38px;border-radius:9px;background:var(--gold-dim);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.visit-icon svg{width:19px;height:19px;stroke:var(--gold);fill:none;stroke-width:1.8}
+.visit-icon-emoji{font-size:1.15rem;line-height:1}
+.visit-meta{flex:1}
+.visit-date{font-size:.68rem;color:var(--gold);font-weight:700;letter-spacing:.8px;text-transform:uppercase;margin-bottom:.15rem}
+.visit-title{font-size:.93rem;font-weight:700;color:var(--white);line-height:1.3}
+.visit-desc{font-size:.79rem;color:var(--muted);line-height:1.6}
+.visit-card.highlight{border-color:rgba(200,168,75,.35);background:linear-gradient(135deg,var(--card),rgba(200,168,75,.04))}
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:1.1rem}
+.ccard{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.3rem;text-align:center;text-decoration:none;transition:border-color .2s,transform .15s}
+.ccard:hover{border-color:var(--gold);transform:translateY(-3px)}
+.ccard-icon{width:40px;height:40px;border-radius:10px;background:var(--gold-dim);margin:0 auto .7rem;display:flex;align-items:center;justify-content:center}
+.ccard-icon svg{width:20px;height:20px;stroke:var(--gold);fill:none;stroke-width:1.8}
+.ccard-label{font-size:.68rem;color:var(--muted);text-transform:uppercase;letter-spacing:1px}
+.ccard-val{font-size:.85rem;color:var(--white);font-weight:600;margin-top:3px;word-break:break-all}
+footer{position:relative;z-index:1;text-align:center;padding:2rem;border-top:1px solid var(--border);color:var(--muted);font-size:.78rem}
+footer span{color:var(--gold)}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease}
+.reveal.vis{opacity:1;transform:translateY(0)}
+@media(max-width:768px){.about-grid{grid-template-columns:1fr}.nav-links{display:none}.hero-kpis{gap:1.8rem}.cv-card{flex-direction:column}}
 </style>
 </head>
 <body>
@@ -162,6 +208,7 @@ footer span{color:var(--gold)}
     <li><a href="#experience">Expérience</a></li>
     <li><a href="#skills">Compétences</a></li>
     <li><a href="#projects">Projets</a></li>
+    <li><a href="#lectures">Lectures</a></li>
     <li><a href="#cv">CV</a></li>
     <li><a href="#education">Formation</a></li>
     <li><a href="#terrain">Terrain</a></li>
@@ -192,6 +239,32 @@ footer span{color:var(--gold)}
     </div>
   </div>
 </section>
+
+<!-- POSTURE PROJET -->
+<div class="projet-strip">
+  <div class="projet-strip-inner">
+    <div class="s-label reveal">Profil · Approche</div>
+    <h2 class="s-title reveal">Pilote de <span class="a">bout en bout</span>, pas simple exécutant</h2>
+    <div class="s-bar reveal"></div>
+    <div class="projet-pillars">
+      <div class="pillar reveal">
+        <div class="pillar-num">01 · Vision globale</div>
+        <div class="pillar-title">Du diagnostic à la décision</div>
+        <div class="pillar-desc">Je ne me contente pas de faire tourner les flux — j'analyse les données, identifie les dysfonctionnements et <strong>propose des plans d'action concrets</strong>. Chez U Logistique, j'ai structuré le reporting KPI de A à Z, de la collecte de données brutes jusqu'aux recommandations pour le management.</div>
+      </div>
+      <div class="pillar reveal">
+        <div class="pillar-num">02 · Conduite de projet</div>
+        <div class="pillar-title">Coordination multi-parties & livrables</div>
+        <div class="pillar-desc">Au Tchad (mission UNICEF), j'ai piloté seul la supply chain complète d'un projet de forages humanitaires : <strong>sélection fournisseurs, passation de commandes, coordination terrain, suivi livraison</strong>. Un projet = un chef de projet, pas une chaîne de validation.</div>
+      </div>
+      <div class="pillar reveal">
+        <div class="pillar-num">03 · Amélioration continue</div>
+        <div class="pillar-title">Construire des solutions qui durent</div>
+        <div class="pillar-desc">Mes livrables ne sont pas des rapports ponctuels : outils automatisés sous VBA, dashboards Power BI réutilisables, <strong>systèmes qui continuent de produire de la valeur après mon passage</strong>. Chaque projet est pensé pour être repris, amélioré et scalé.</div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- ABOUT -->
 <section id="about">
@@ -395,6 +468,89 @@ footer span{color:var(--gold)}
         <div class="proj-desc">Mission conseil pour l'implantation d'un entrepôt de distribution en France suite au Brexit pour Plumbingstuff (fournitures plomberie UK) : analyse comparative Évry vs Villeneuve-Saint-Georges, rédaction du cahier des charges WMS et conception du schéma d'implantation.</div>
         <div class="proj-tags"><span class="tag">Implantation entrepôt</span><span class="tag">WMS</span><span class="tag">Post-Brexit</span><span class="tag">Analyse de site</span><span class="tag">Schéma logistique</span></div>
       </div>
+    </div>
+  </div>
+</section>
+
+<section id="lectures">
+  <div class="section-wrap">
+    <div class="s-label reveal">Self-learning · Culture métier</div>
+    <h2 class="s-title reveal">Lectures <span class="a">Supply Chain</span></h2>
+    <div class="s-bar reveal"></div>
+    <div class="books-grid">
+
+      <div class="book-card reveal">
+        <div class="book-title">The Goal</div>
+        <div class="book-author">Eliyahu M. Goldratt</div>
+        <span class="book-tag">Théorie des contraintes</span>
+      </div>
+
+      <div class="book-card reveal">
+        <div class="book-title">Supply Chain Management</div>
+        <div class="book-author">Sunil Chopra</div>
+        <span class="book-tag">Stratégie SC</span>
+      </div>
+
+      <div class="book-card reveal">
+        <div class="book-title">Lean Startup</div>
+        <div class="book-author">Eric Ries</div>
+        <span class="book-tag">Innovation & agilité</span>
+      </div>
+
+      <div class="book-card reveal">
+        <div class="book-title">Logistique &amp; Supply Chain</div>
+        <div class="book-author">Michel Fender &amp; Yves Pimor</div>
+        <span class="book-tag">Référence française</span>
+      </div>
+
+      <div class="book-card reveal">
+        <div class="book-title">Management de la Supply Chain</div>
+        <div class="book-author">Valérie Basmoreau &amp; Olivier Meier — Éditions EMS</div>
+        <span class="book-tag">Management SC</span>
+      </div>
+
+      <div class="book-card reveal">
+        <div class="book-title">Management Industriel et Logistique</div>
+        <div class="book-author">Gérard Baglin, Olivier Bruel et al.</div>
+        <span class="book-tag">Opérations industrielles</span>
+      </div>
+
+      <div class="book-card reveal">
+        <div class="book-title">Le Transport de Marchandises</div>
+        <div class="book-author">Michel Savy</div>
+        <span class="book-tag">Transport &amp; flux</span>
+      </div>
+
+      <div class="book-card reveal">
+        <div class="book-title">Supply Chain Management for Dummies</div>
+        <div class="book-author">Daniel Stanton</div>
+        <span class="book-tag">Fondamentaux</span>
+      </div>
+
+      <div class="book-card reveal">
+        <div class="book-title">13 Études de Cas en Supply Chain</div>
+        <div class="book-author">Sabrina Berbain &amp; Philippe Vallin</div>
+        <span class="book-tag">Cas pratiques</span>
+      </div>
+
+      <div class="book-card reveal">
+        <div class="book-title">La Boîte à Outils de la Supply Chain</div>
+        <div class="book-author">Alain Perrot &amp; Philippe Villemus</div>
+        <span class="book-tag">Outils &amp; méthodes</span>
+      </div>
+
+      <div class="book-card reveal">
+        <div class="book-title">Supply Chain Magazine</div>
+        <div class="book-author">Revue professionnelle</div>
+        <span class="book-tag">Veille sectorielle</span>
+      </div>
+
+      <div class="book-card reveal">
+        <div class="book-title">France Supply Chain</div>
+        <div class="book-author">Revue &amp; communauté professionnelle</div>
+        <span class="book-tag">Veille sectorielle</span>
+      </div>
+
     </div>
   </div>
 </section>
