@@ -107,7 +107,7 @@ h1.hero-name .accent{color:var(--gold)}
 .btn-download:hover{transform:translateY(-2px);opacity:.9}
 .btn-download svg{width:16px;height:16px;stroke:var(--navy);fill:none;stroke-width:2.5}
 .edu-list{display:flex;flex-direction:column;gap:1.1rem}
-.edu-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.3rem 1.6rem;display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:.8rem;transition:border-color .2s}
+.edu-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.3rem 1.6rem;display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:nowrap;gap:.8rem;transition:border-color .2s}.edu-card>div:first-child{flex:1;min-width:0}
 .edu-card:hover{border-color:var(--gold)}
 .edu-degree{font-size:.97rem;font-weight:700;color:var(--white)}
 .edu-school{font-size:.83rem;color:var(--gold);margin-top:3px}
@@ -207,12 +207,12 @@ footer span{color:var(--gold)}
   <ul class="nav-links">
     <li><a href="#about">Profil</a></li>
     <li><a href="#experience">Expérience</a></li>
-    <li><a href="#skills">Compétences</a></li>
-    <li><a href="#projects">Projets</a></li>
-    <li><a href="#lectures">Lectures</a></li>
-    <li><a href="#cv">CV</a></li>
-    <li><a href="#education">Formation</a></li>
-    <li><a href="#terrain">Terrain</a></li>
+        <li><a href="#education">Formation</a></li>
+            <li><a href="#skills">Compétences</a></li>
+                <li><a href="#projects">Projets</a></li>
+                    <li><a href="#terrain">Terrain</a></li>
+                        <li><a href="#lectures">Lectures</a></li>
+                            <li><a href="#cv">CV</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
@@ -374,9 +374,9 @@ footer span{color:var(--gold)}
     </div>
     <div style="margin-top:3rem;" class="reveal"><div class="s-label" style="margin-bottom:.5rem;">Languages · Langues</div></div>
     <div class="lang-row reveal">
-      <div class="lang-card"><div class="flag">&#127467;&#127479;</div><div><div class="lang-name">Français</div><div class="lang-lvl">Natif · Native</div></div></div>
-      <div class="lang-card"><div class="flag">&#127480;&#127462;</div><div><div class="lang-name">Arabe</div><div class="lang-lvl">C1 · Avancé</div></div></div>
-      <div class="lang-card"><div class="flag">&#127468;&#127463;</div><div><div class="lang-name">Anglais</div><div class="lang-lvl">B2 · Courant</div></div></div>
+            <div class="lang-card"><div class="flag"><img src="https://flagcdn.com/32x24/fr.png" alt="FR" style="width:32px;height:auto;border-radius:3px;display:block"></div><div><div class="lang-name">Français</div><div class="lang-lvl">Natif · Native</div></div></div>
+                  <div class="lang-card"><div class="flag"><img src="https://flagcdn.com/32x24/sa.png" alt="SA" style="width:32px;height:auto;border-radius:3px;display:block"></div><div><div class="lang-name">Arabe</div><div class="lang-lvl">C1 · Avancé</div></div></div>
+                        <div class="lang-card"><div class="flag"><img src="https://flagcdn.com/32x24/gb.png" alt="GB" style="width:32px;height:auto;border-radius:3px;display:block"></div><div><div class="lang-name">Anglais</div><div class="lang-lvl">B2 · Courant</div></div></div>
     </div>
   </div>
 </section>
