@@ -196,7 +196,23 @@ footer span{color:var(--gold)}
 .reveal.vis{opacity:1;transform:translateY(0)}
 @media(max-width:768px){.about-grid{grid-template-columns:1fr}.nav-links{display:none}.hero-kpis{gap:1.8rem}.cv-card{flex-direction:column}}
 .projet-intro{max-width:700px;font-size:1.1rem;color:var(--text-muted);margin:1.2rem 0 2.8rem;line-height:1.65}.projet-facts{display:flex;flex-direction:column;gap:1.4rem;max-width:860px}.projet-fact{display:flex;align-items:flex-start;gap:2rem;padding:1.5rem 1.8rem;background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:10px;transition:border-color .3s}.projet-fact:hover{border-color:var(--gold)}.fact-num{font-size:1.8rem;font-weight:800;color:var(--gold);opacity:.5;min-width:2.5rem;padding-top:.1rem;line-height:1}.fact-body{flex:1}.fact-title{font-size:1rem;font-weight:700;color:var(--text);margin-bottom:.4rem;letter-spacing:.02em}.fact-desc{font-size:.92rem;color:var(--text-muted);line-height:1.6}@media(max-width:580px){.projet-fact{flex-direction:column;gap:.8rem}}
-</style>
+
+    .thead { display: flex; gap: 14px; align-items: flex-start; }
+    .thead-info { flex: 1; }
+    .tlogo-box {
+      width: 52px; height: 52px; flex-shrink: 0;
+      border-radius: 10px; overflow: hidden;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(200,168,75,0.25);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .tlogo { width: 44px; height: 44px; object-fit: contain; }
+    .tlogo-init {
+      width: 44px; height: 44px; border-radius: 8px;
+      display: none; align-items: center; justify-content: center;
+      font-size: 18px; font-weight: 800; color: #c8a84b;
+    }
+  </style>
 </head>
 <body>
 <canvas id="canvas-bg"></canvas>
@@ -270,7 +286,7 @@ footer span{color:var(--gold)}
 
       <div class="titem reveal">
         <div class="tdot"></div>
-        <div class="thead"><div class="trole">Alternant — Opérations Supply Chain</div><div class="tdate">Sept. 2024 – Août 2026</div></div>
+        <div class="thead"><div class="tlogo-box"><img class="tlogo" src="https://logo.clearbit.com/ulogistique.fr" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt=""/><div class="tlogo-init" style="background:#e63a2e22">U</div></div><div class="thead-info"><div class="trole">Alternant — Opérations Supply Chain</div><div class="tdate">Sept. 2024 – Août 2026</div></div></div>
         <div class="tcompany">U Logistique · Ifs, France</div>
         <ul class="tpoints">
           <li>Pilotage de <strong>25 à 30 tournées/jour</strong> (frais &amp; surgelés) vers 35+ magasins U, taux de service maintenu à <strong>plus de 98 %</strong></li>
@@ -281,7 +297,7 @@ footer span{color:var(--gold)}
 
       <div class="titem reveal">
         <div class="tdot"></div>
-        <div class="thead"><div class="trole">CDD · Assistant Administratif</div><div class="tdate">Déc. 2021 – Fév. 2022</div></div>
+        <div class="thead"><div class="tlogo-box"><img class="tlogo" src="https://logo.clearbit.com/hotelserviceplus.fr" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt=""/><div class="tlogo-init" style="background:#9b59b622">H</div></div><div class="thead-info"><div class="trole">CDD · Assistant Administratif</div><div class="tdate">Déc. 2021 – Fév. 2022</div></div></div>
         <div class="tcompany">Hôtel Service Plus · Bagnolet, France</div>
         <ul class="tpoints">
           <li>Accueil et gestion administrative des résidents hébergés dans le cadre du <strong>logement d'urgence</strong></li>
@@ -303,7 +319,7 @@ footer span{color:var(--gold)}
 
       <div class="titem reveal">
         <div class="tdot"></div>
-        <div class="thead"><div class="trole">Stagiaire — Commerce International &amp; Opérations Fret</div><div class="tdate">Mai 2024</div></div>
+        <div class="thead"><div class="tlogo-box"><img class="tlogo" src="https://logo.clearbit.com/worldtransporteasy.com" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt=""/><div class="tlogo-init" style="background:#2980b922">W</div></div><div class="thead-info"><div class="trole">Stagiaire — Commerce International &amp; Opérations Fret</div><div class="tdate">Mai 2024</div></div></div>
         <div class="tcompany">World Transport Easy · Roissy-CDG, France</div>
         <ul class="tpoints">
           <li>Observation des flux import/export maritime et aérien en zone de fret de Roissy-CDG — découverte des processus documentaires (<strong>Incoterms</strong>, connaissements, déclarations douanières)</li>
@@ -313,7 +329,7 @@ footer span{color:var(--gold)}
 
       <div class="titem reveal">
         <div class="tdot"></div>
-        <div class="thead"><div class="trole">Stagiaire — Coordination Supply Chain</div><div class="tdate">Juin – Août 2023</div></div>
+        <div class="thead"><div class="tlogo-box"><img class="tlogo" src="https://logo.clearbit.com/peschaud.com" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt=""/><div class="tlogo-init" style="background:#27ae6022">M</div></div><div class="thead-info"><div class="trole">Stagiaire — Coordination Supply Chain</div><div class="tdate">Juin – Août 2023</div></div></div>
         <div class="tcompany">Mosaic International (Peschaud-Perenco) · N'Djaména, Tchad</div>
         <ul class="tpoints">
           <li>Suivi des approvisionnements clients et contrôle des flux de camions sur le site pétrolier <strong>Perenco de Badila Mangara</strong> (Tchad)</li>
