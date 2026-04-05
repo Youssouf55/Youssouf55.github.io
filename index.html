@@ -866,6 +866,57 @@ section:nth-child(odd){background:transparent}
   }
   draw();
 })();
+
+// ── Barre de progression scroll ──
+(function(){
+  var prog=document.getElementById('scroll-prog');
+  if(prog) window.addEventListener('scroll',function(){
+    var pct=(window.scrollY/(document.body.scrollHeight-window.innerHeight))*100;
+    prog.style.width=Math.min(pct,100)+'%';
+  },{passive:true});
+})();
+
+// ── Numéros de section ──
+(function(){
+  var ids=['about','experience','education','skills','projects','engagements','terrain','lectures','cv','contact'];
+  ids.forEach(function(id,i){
+    var sec=document.getElementById(id);if(!sec)return;
+    var ct=sec.querySelector('.section-wrap')||sec.querySelector('.cv-wrap')||sec.firstElementChild;
+    if(!ct)return;
+    var n=document.createElement('span');n.className='sec-num';
+    n.textContent=(i+1<10?'0':'')+(i+1);ct.insertBefore(n,ct.firstChild);
+  });
+})();
+
+// ── Reveal au scroll (IntersectionObserver) ──
+(function(){
+  var obs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){e.target.classList.add('vis');obs.unobserve(e.target);}
+    });
+  },{threshold:0.06,rootMargin:'0px 0px -20px 0px'});
+  document.querySelectorAll('.reveal,.reveal-l,.reveal-r').forEach(function(el){obs.observe(el);});
+})();
+
+// ── Compteur animé KPI ──
+(function(){
+  function countUp(el,target,dur){
+    var s=0,step=target/((dur||900)/16);
+    var t=setInterval(function(){s=Math.min(s+step,target);el.textContent=Math.round(s);if(s>=target)clearInterval(t);},16);
+  }
+  var kpiObs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(!e.isIntersecting)return;
+      var el=e.target,val=parseInt(el.dataset.val||el.textContent,10);
+      if(!isNaN(val)){el.textContent='0';countUp(el,val);}
+      kpiObs.unobserve(el);
+    });
+  },{threshold:0.5});
+  document.querySelectorAll('.kpi-num').forEach(function(el){
+    if(!el.dataset.val)el.dataset.val=el.textContent.replace(/[^0-9]/g,'');
+    kpiObs.observe(el);
+  });
+})();
 </script>
 </body>
 </html>
