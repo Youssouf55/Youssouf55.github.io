@@ -5,33 +5,33 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Youssouf Bechir — Achats &amp; Supply Chain</title>
 <style>
-:root{--navy:#0b1929;--navy-mid:#0f2340;--navy-light:#152e52;--card:#111f36;--gold:#c8a84b;--gold-light:#dfc06a;--gold-dim:rgba(200,168,75,0.15);--border:rgba(200,168,75,0.18);--white:#f0f4fb;--muted:#8898b8;--text:#d8e2f4;--radius:10px}
+:root{--navy:#0e0508;--navy-mid:#1c0b12;--navy-light:#2e1020;--card:#1e0d14;--gold:#8B1A4A;--gold-light:#b52260;--gold-dim:rgba(139,26,74,0.15);--border:rgba(139,26,74,0.32);--white:#f5f0f2;--muted:#c9a8b5;--text:#e8d4dc;--radius:4px}
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;font-size:16px}
 body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--navy);color:var(--text);line-height:1.7;overflow-x:hidden}
 ::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:var(--navy)}::-webkit-scrollbar-thumb{background:var(--gold);border-radius:3px}
-#canvas-bg{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:0.55}
-nav{position:fixed;top:0;width:100%;z-index:100;background:rgba(11,25,41,0.88);backdrop-filter:blur(18px);border-bottom:1px solid var(--border);height:62px;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(1.5rem,5vw,5rem)}
+#canvas-bg{display:none}
+nav{position:fixed;top:0;width:100%;z-index:100;background:rgba(14,5,8,0.93);backdrop-filter:blur(18px);border-bottom:1px solid var(--border);height:62px;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(1.5rem,5vw,5rem)}
 .nav-logo{font-size:1.15rem;font-weight:800;color:var(--gold);letter-spacing:1px;text-decoration:none}
 .nav-links{display:flex;gap:2.2rem;list-style:none}
 .nav-links a{color:var(--muted);text-decoration:none;font-size:0.82rem;font-weight:600;letter-spacing:0.6px;text-transform:uppercase;transition:color .2s}
 .nav-links a:hover{color:var(--gold)}
 #hero{position:relative;z-index:1;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:80px clamp(1.5rem,5vw,5rem) 60px;text-align:center}
 .hero-inner{max-width:860px}
-.hero-badge{display:inline-block;border:1px solid var(--border);background:var(--gold-dim);color:var(--gold);font-size:0.72rem;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;padding:6px 20px;border-radius:40px;margin-bottom:1.6rem}
+.hero-badge{display:inline-block;border-left:3px solid var(--gold);background:transparent;color:var(--muted);font-size:0.72rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;padding:4px 0 4px 14px;margin-bottom:1.8rem}
 h1.hero-name{font-size:clamp(3rem,8vw,5.5rem);font-weight:900;line-height:1.05;color:var(--white);letter-spacing:-1px;margin-bottom:1rem}
 h1.hero-name .accent{color:var(--gold)}
 .hero-role{font-size:clamp(1rem,2.5vw,1.25rem);color:var(--muted);margin-bottom:.5rem;font-weight:500}
 .hero-location{font-size:.85rem;color:var(--muted);margin-bottom:2.6rem}
 .hero-cta{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
-.btn{padding:13px 34px;border-radius:var(--radius);font-size:.88rem;font-weight:700;text-decoration:none;transition:transform .15s,opacity .15s;cursor:pointer;border:none}
-.btn:hover{transform:translateY(-2px);opacity:.9}
-.btn-gold{background:var(--gold);color:var(--navy)}
-.btn-outline{background:transparent;color:var(--gold);border:1.5px solid var(--gold)}
-.btn-cv{background:transparent;color:var(--white);border:1.5px solid rgba(240,244,251,0.3);display:inline-flex;align-items:center;gap:.5rem}
-.btn-cv:hover{border-color:var(--gold);color:var(--gold)}
+.btn{font-size:.88rem;font-weight:700;text-decoration:none;cursor:pointer;border:none}
+.btn:hover{opacity:1}
+.btn-gold{background:transparent;color:var(--white);padding:0;display:inline-flex;align-items:center;gap:.4rem;font-size:.92rem;font-weight:600;transition:color .2s}.btn-gold::after{content:"→";transition:transform .2s}.btn-gold:hover{color:var(--gold)}.btn-gold:hover::after{transform:translateX(5px)}
+.btn-outline{background:transparent;color:var(--muted);padding:0;display:inline-flex;align-items:center;gap:.4rem;font-size:.92rem;font-weight:500;transition:color .2s}.btn-outline::after{content:"→";transition:transform .2s}.btn-outline:hover{color:var(--gold)}.btn-outline:hover::after{transform:translateX(5px)}
+.btn-cv{background:var(--gold);color:var(--white);border:none;padding:14px 38px;border-radius:var(--radius);display:inline-flex;align-items:center;gap:.6rem;transition:background .2s,transform .15s}
+.btn-cv:hover{background:var(--gold-light);transform:translateY(-2px)}
 .btn-cv svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2}
-.hero-kpis{display:flex;justify-content:center;gap:3.5rem;margin-top:4.5rem;flex-wrap:wrap}
+.hero-cta{align-items:center}.hero-kpis{display:flex;justify-content:center;gap:3.5rem;margin-top:4.5rem;flex-wrap:wrap}
 .kpi{text-align:center}
 .kpi-num{font-size:2.4rem;font-weight:900;color:var(--gold);line-height:1}
 .kpi-num sup{font-size:1rem;font-weight:700}
@@ -233,10 +233,10 @@ footer span{color:var(--gold)}
       <a href="#contact" class="btn btn-outline">Me contacter</a>
     </div>
     <div class="hero-kpis">
-      <div class="kpi"><div class="kpi-num" data-count="2">0<sup>+</sup></div><div class="kpi-label">Ans d'alternance</div></div>
-      <div class="kpi"><div class="kpi-num" data-count="3">0</div><div class="kpi-label">Continents</div></div>
-      <div class="kpi"><div class="kpi-num" data-count="6">0<sup>+</sup></div><div class="kpi-label">Projets Supply Chain</div></div>
-      <div class="kpi"><div class="kpi-num" data-count="3">0</div><div class="kpi-label">Langues maîtrisées</div></div>
+      <div class="kpi"><div class="kpi-num">2<sup>+</sup></div><div class="kpi-label">Ans d'alternance</div></div>
+      <div class="kpi"><div class="kpi-num">3</div><div class="kpi-label">Continents</div></div>
+      <div class="kpi"><div class="kpi-num">6<sup>+</sup></div><div class="kpi-label">Projets Supply Chain</div></div>
+      <div class="kpi"><div class="kpi-num">3</div><div class="kpi-label">Langues maîtrisées</div></div>
     </div>
   </div>
 </section>
