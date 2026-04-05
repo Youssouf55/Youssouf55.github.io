@@ -16,14 +16,14 @@ nav{position:fixed;top:0;width:100%;z-index:100;background:rgba(15,12,8,0.96);ba
 .nav-links{display:flex;gap:2.2rem;list-style:none}
 .nav-links a{color:var(--muted);text-decoration:none;font-size:0.82rem;font-weight:600;letter-spacing:0.6px;text-transform:uppercase;transition:color .2s}
 .nav-links a:hover{color:var(--gold)}
-#hero{position:relative;z-index:1;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:80px clamp(1.5rem,5vw,5rem) 60px;text-align:center}
+#hero{position:relative;z-index:1;min-height:100vh;display:flex;align-items:flex-start;justify-content:center;padding:80px clamp(1.5rem,5vw,5rem) 60px;text-align:left}
 .hero-inner{max-width:860px}
 .hero-badge{display:inline-block;border-left:3px solid var(--gold);background:transparent;color:var(--muted);font-size:0.72rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;padding:4px 0 4px 14px;margin-bottom:1.8rem}
 h1.hero-name{font-size:clamp(3rem,8vw,5.5rem);font-weight:900;line-height:1.05;color:var(--white);letter-spacing:-1px;margin-bottom:1rem}
 h1.hero-name .accent{color:var(--gold)}
 .hero-role{font-size:clamp(1rem,2.5vw,1.25rem);color:var(--muted);margin-bottom:.5rem;font-weight:500}
 .hero-location{font-size:.85rem;color:var(--muted);margin-bottom:2.6rem}
-.hero-cta{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.hero-cta{display:flex;gap:1rem;justify-content:flex-start;flex-wrap:wrap}
 .btn{font-size:.88rem;font-weight:700;text-decoration:none;cursor:pointer;border:none}
 .btn:hover{opacity:1}
 .btn-gold{background:transparent;color:var(--white);padding:0;display:inline-flex;align-items:center;gap:.4rem;font-size:.92rem;font-weight:600;transition:color .2s}.btn-gold::after{content:"→";transition:transform .2s}.btn-gold:hover{color:var(--gold)}.btn-gold:hover::after{transform:translateX(5px)}
@@ -196,9 +196,51 @@ footer span{color:var(--gold)}
 .reveal.vis{opacity:1;transform:translateY(0)}
 @media(max-width:768px){.about-grid{grid-template-columns:1fr}.nav-links{display:none}.hero-kpis{gap:1.8rem}.cv-card{flex-direction:column}}
 .projet-intro{max-width:700px;font-size:1.1rem;color:var(--text-muted);margin:1.2rem 0 2.8rem;line-height:1.65}.projet-facts{display:flex;flex-direction:column;gap:1.4rem;max-width:860px}.projet-fact{display:flex;align-items:flex-start;gap:2rem;padding:1.5rem 1.8rem;background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:10px;transition:border-color .3s}.projet-fact:hover{border-color:var(--gold)}.fact-num{font-size:1.8rem;font-weight:800;color:var(--gold);opacity:.5;min-width:2.5rem;padding-top:.1rem;line-height:1}.fact-body{flex:1}.fact-title{font-size:1rem;font-weight:700;color:var(--text);margin-bottom:.4rem;letter-spacing:.02em}.fact-desc{font-size:.92rem;color:var(--text-muted);line-height:1.6}@media(max-width:580px){.projet-fact{flex-direction:column;gap:.8rem}}
+
+/* ====== SCROLL PROGRESS ====== */
+#scroll-prog{position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,var(--gold),var(--gold-light));width:0%;z-index:9999;transition:width .08s linear}
+
+/* ====== AMBIENT BLOBS ====== */
+.amb-blob{position:fixed;border-radius:50%;pointer-events:none;z-index:0;filter:blur(100px);opacity:.055;will-change:transform;transition:opacity .3s}
+#blob1{width:640px;height:640px;background:radial-gradient(circle,#D4922A,transparent 70%);top:5%;left:15%}
+#blob2{width:500px;height:500px;background:radial-gradient(circle,#E8B845,transparent 70%);top:45%;left:55%}
+#blob3{width:420px;height:420px;background:radial-gradient(circle,#C47820,transparent 70%);top:75%;left:10%}
+
+/* ====== HERO LEFT ====== */
+.hero-inner{text-align:left}
+.kpi-row{justify-content:flex-start}
+
+/* ====== SECTION FILIGREE ====== */
+.sec-num{font-size:7rem;font-weight:900;color:var(--gold);opacity:.045;position:absolute;top:-1.5rem;left:-0.5rem;line-height:1;pointer-events:none;user-select:none;z-index:0;font-variant-numeric:tabular-nums}
+
+/* ====== SECTION BREATHING ====== */
+section{position:relative}
+section:nth-child(even){background:rgba(26,22,16,.45)}
+section:nth-child(odd){background:transparent}
+
+/* ====== ENHANCED REVEALS ====== */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.22,1,.36,1),transform .8s cubic-bezier(.22,1,.36,1)}
+.reveal.visible{opacity:1;transform:none}
+.reveal-l{opacity:0;transform:translateX(-20px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)}
+.reveal-l.visible{opacity:1;transform:none}
+.reveal-r{opacity:0;transform:translateX(20px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)}
+.reveal-r.visible{opacity:1;transform:none}
+
+/* ====== CARD GLOW HOVER ====== */
+.exp-card:hover,.proj-card:hover,.visit-card:hover,.book-card:hover,.acard:hover{box-shadow:0 0 0 1px var(--gold),0 12px 36px rgba(212,146,42,.1);transform:translateY(-3px)}
+.exp-card,.proj-card,.visit-card,.book-card{transition:border-color .2s,box-shadow .25s,transform .25s}
+
+/* ====== SECTION DIVIDER LINE ====== */
+.sec-divider{height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:0;opacity:.3}
+
 </style>
 </head>
 <body>
+<div id="scroll-prog"></div>
+<div class="amb-blob" id="blob1"></div>
+<div class="amb-blob" id="blob2"></div>
+<div class="amb-blob" id="blob3"></div>
+
 <canvas id="canvas-bg"></canvas>
 
 <!-- NAV -->
@@ -789,6 +831,72 @@ document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 function countUp(el,target){let cur=0;const sup=el.querySelector('sup');const step=Math.max(1,Math.floor(target/60));const id=setInterval(()=>{cur=Math.min(cur+step,target);el.innerHTML=cur+(sup?`<sup>${sup.innerHTML}</sup>`:'');if(cur>=target)clearInterval(id)},22)}
 const io2=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){const el=e.target,t=parseInt(el.dataset.count);countUp(el,t);io2.unobserve(el)}})},{threshold:.5});
 document.querySelectorAll('[data-count]').forEach(el=>io2.observe(el));
+</script>
+
+<script>
+(function(){
+  // ---- SCROLL PROGRESS BAR ----
+  var prog = document.getElementById('scroll-prog');
+  window.addEventListener('scroll', function(){
+    var pct = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+    if(prog) prog.style.width = Math.min(pct, 100) + '%';
+  }, {passive:true});
+
+  // ---- AMBIENT BLOB DRIFT ----
+  var blobData = [
+    {id:'blob1', ox:15, oy:5,  phase:0,   sx:0.0004, sy:0.0003, ax:5, ay:4},
+    {id:'blob2', ox:55, oy:45, phase:2.1, sx:0.0003, sy:0.0005, ax:6, ay:5},
+    {id:'blob3', ox:10, oy:75, phase:4.2, sx:0.0005, sy:0.0003, ax:4, ay:6}
+  ];
+  blobData.forEach(function(b){ b.el = document.getElementById(b.id); });
+  var startTime = performance.now();
+  function driftBlobs(now) {
+    var t = (now - startTime) * 0.001;
+    blobData.forEach(function(b) {
+      if(!b.el) return;
+      var x = b.ox + Math.sin(t * b.sx * 1000 + b.phase) * b.ax;
+      var y = b.oy + Math.cos(t * b.sy * 1000 + b.phase) * b.ay;
+      b.el.style.left = x + '%';
+      b.el.style.top  = y + '%';
+    });
+    requestAnimationFrame(driftBlobs);
+  }
+  requestAnimationFrame(driftBlobs);
+
+  // ---- SECTION FILIGREE NUMBERS ----
+  var secIds = ['about','experience','education','skills','projects','engagements','terrain','lectures','cv','contact'];
+  secIds.forEach(function(id, i){
+    var sec = document.getElementById(id);
+    if(!sec) return;
+    var ct = sec.querySelector('.container');
+    if(!ct) return;
+    ct.style.position = 'relative';
+    var n = document.createElement('span');
+    n.className = 'sec-num';
+    n.textContent = (i + 1 < 10 ? '0' : '') + (i + 1);
+    ct.insertBefore(n, ct.firstChild);
+  });
+
+  // ---- ENHANCED SCROLL REVEAL ----
+  var allReveal = document.querySelectorAll('.section-title,.exp-card,.skill-card,.proj-card,.visit-card,.book-card,.acard,.about-text,.about-cards,.edu-card,.contact-form,.kpi-item');
+  allReveal.forEach(function(el, i){
+    el.classList.add('reveal');
+    if(i % 3 === 1) el.style.transitionDelay = '0.1s';
+    if(i % 3 === 2) el.style.transitionDelay = '0.2s';
+  });
+
+  var revObs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting) {
+        e.target.classList.add('visible');
+        revObs.unobserve(e.target);
+      }
+    });
+  }, {threshold: 0.08, rootMargin: '0px 0px -40px 0px'});
+
+  allReveal.forEach(function(el){ revObs.observe(el); });
+
+})();
 </script>
 </body>
 </html>
