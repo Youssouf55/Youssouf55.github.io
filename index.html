@@ -841,7 +841,7 @@ section:nth-child(odd){background:transparent}
   }
   for(var i=0;i<5;i++)spawn();
   function draw(){
-    requestAnimationFrame(draw);
+    setTimeout(draw,100);
     if(++fc%3!==0)return;
     cx.clearRect(0,0,W,H);
     var nodes=nd.map(function(n){return[n[0]*W,n[1]*H];});
