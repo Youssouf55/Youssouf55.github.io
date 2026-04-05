@@ -5,13 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Youssouf Bechir — Achats &amp; Supply Chain</title>
 <style>
-:root{--navy:#0F0C08;--navy-mid:#1A1610;--navy-light:#2A2018;--card:#1E1A12;--gold:#D4922A;--gold-light:#E8B845;--gold-dim:rgba(212,146,42,0.15);--border:rgba(212,146,42,0.28);--white:#F2ECD8;--muted:#9E8C6A;--text:#EDE4C8;--radius:4px}
+:root{--navy:#111A14;--navy-mid:#192318;--navy-light:#223020;--card:#1A2A1E;--gold:#4A8C6A;--gold-light:#68B58A;--gold-dim:rgba(74,140,106,0.15);--border:rgba(74,140,106,0.28);--white:#E4EDD6;--muted:#7A9E82;--text:#D4E4C4;--radius:4px}
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;font-size:16px}
 body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--navy);color:var(--text);line-height:1.7;overflow-x:hidden}
 ::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:var(--navy)}::-webkit-scrollbar-thumb{background:var(--gold);border-radius:3px}
 #canvas-bg{display:none}
-nav{position:fixed;top:0;width:100%;z-index:100;background:rgba(15,12,8,0.96);backdrop-filter:blur(18px);border-bottom:1px solid var(--border);height:62px;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(1.5rem,5vw,5rem)}
+nav{position:fixed;top:0;width:100%;z-index:100;background:rgba(17,26,20,0.96);backdrop-filter:blur(18px);border-bottom:1px solid var(--border);height:62px;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(1.5rem,5vw,5rem)}
 .nav-logo{font-size:1.15rem;font-weight:800;color:var(--gold);letter-spacing:1px;text-decoration:none}
 .nav-links{display:flex;gap:2.2rem;list-style:none}
 .nav-links a{color:var(--muted);text-decoration:none;font-size:0.82rem;font-weight:600;letter-spacing:0.6px;text-transform:uppercase;transition:color .2s}
@@ -28,7 +28,7 @@ h1.hero-name .accent{color:var(--gold)}
 .btn:hover{opacity:1}
 .btn-gold{background:transparent;color:var(--white);padding:0;display:inline-flex;align-items:center;gap:.4rem;font-size:.92rem;font-weight:600;transition:color .2s}.btn-gold::after{content:"→";transition:transform .2s}.btn-gold:hover{color:var(--gold)}.btn-gold:hover::after{transform:translateX(5px)}
 .btn-outline{background:transparent;color:var(--muted);padding:0;display:inline-flex;align-items:center;gap:.4rem;font-size:.92rem;font-weight:500;transition:color .2s}.btn-outline::after{content:"→";transition:transform .2s}.btn-outline:hover{color:var(--gold)}.btn-outline:hover::after{transform:translateX(5px)}
-.btn-cv{background:var(--gold);color:#1A1610;border:none;padding:14px 38px;border-radius:var(--radius);display:inline-flex;align-items:center;gap:.6rem;transition:background .2s,transform .15s;font-weight:800}
+.btn-cv{background:var(--gold);color:#0E1A10;border:none;padding:14px 38px;border-radius:var(--radius);display:inline-flex;align-items:center;gap:.6rem;transition:background .2s,transform .15s;font-weight:800}
 .btn-cv:hover{background:var(--gold-light);transform:translateY(-2px)}
 .btn-cv svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2}
 .hero-cta{align-items:center}.hero-kpis{display:flex;justify-content:center;gap:3.5rem;margin-top:4.5rem;flex-wrap:wrap}
@@ -200,11 +200,8 @@ footer span{color:var(--gold)}
 /* ====== SCROLL PROGRESS ====== */
 #scroll-prog{position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,var(--gold),var(--gold-light));width:0%;z-index:9999;transition:width .08s linear}
 
-/* ====== AMBIENT BLOBS ====== */
-.amb-blob{position:fixed;border-radius:50%;pointer-events:none;z-index:0;filter:blur(60px);opacity:.055;will-change:transform;transform:translateZ(0);transition:opacity .3s}
-#blob1{width:640px;height:640px;background:radial-gradient(circle,#D4922A,transparent 70%);top:5%;left:15%}
-#blob2{width:500px;height:500px;background:radial-gradient(circle,#E8B845,transparent 70%);top:45%;left:55%}
-#blob3{width:420px;height:420px;background:radial-gradient(circle,#C47820,transparent 70%);top:75%;left:10%}
+/* ====== SUPPLY CHAIN CANVAS ====== */
+#sc-net{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:0.4}
 
 /* ====== HERO LEFT ====== */
 .hero-inner{text-align:left}
@@ -215,7 +212,7 @@ footer span{color:var(--gold)}
 
 /* ====== SECTION BREATHING ====== */
 section{position:relative}
-section:nth-child(even){background:rgba(26,22,16,.45)}
+section:nth-child(even){background:rgba(20,35,24,.5)}
 section:nth-child(odd){background:transparent}
 
 /* ====== ENHANCED REVEALS ====== */
@@ -237,9 +234,7 @@ section:nth-child(odd){background:transparent}
 </head>
 <body>
 <div id="scroll-prog"></div>
-<div class="amb-blob" id="blob1"></div>
-<div class="amb-blob" id="blob2"></div>
-<div class="amb-blob" id="blob3"></div>
+<canvas id="sc-net"></canvas>
 
 <canvas id="canvas-bg"></canvas>
 
@@ -842,26 +837,74 @@ document.querySelectorAll('[data-count]').forEach(el=>io2.observe(el));
     if(prog) prog.style.width = Math.min(pct, 100) + '%';
   }, {passive:true});
 
-  // ---- AMBIENT BLOB DRIFT ----
-  var blobData = [
-    {id:'blob1', ox:15, oy:5,  phase:0,   sx:0.0004, sy:0.0003, ax:5, ay:4},
-    {id:'blob2', ox:55, oy:45, phase:2.1, sx:0.0003, sy:0.0005, ax:6, ay:5},
-    {id:'blob3', ox:10, oy:75, phase:4.2, sx:0.0005, sy:0.0003, ax:4, ay:6}
-  ];
-  blobData.forEach(function(b){ b.el = document.getElementById(b.id); });
-  var startTime = performance.now();
-  var _fc=0;function driftBlobs(now) { _fc++;if(_fc%3!==0){requestAnimationFrame(driftBlobs);return;}
-    var t = (now - startTime) * 0.001;
-    blobData.forEach(function(b) {
-      if(!b.el) return;
-      var x = b.ox + Math.sin(t * b.sx * 1000 + b.phase) * b.ax;
-      var y = b.oy + Math.cos(t * b.sy * 1000 + b.phase) * b.ay;
-      b.el.style.left = x + '%';
-      b.el.style.top  = y + '%';
-    });
-    requestAnimationFrame(driftBlobs);
-  }
-  requestAnimationFrame(driftBlobs);
+  // ---- SUPPLY CHAIN NETWORK ANIMATION ----
+  (function(){
+    var cv = document.getElementById('sc-net');
+    if(!cv) return;
+    var cx = cv.getContext('2d');
+    var W, H;
+    function resize(){ W = cv.width = window.innerWidth; H = cv.height = window.innerHeight; }
+    resize();
+    window.addEventListener('resize', resize, {passive:true});
+
+    var nd = [
+      [0.08,0.18],[0.22,0.08],[0.42,0.14],[0.65,0.10],[0.88,0.20],
+      [0.15,0.48],[0.38,0.40],[0.60,0.44],[0.82,0.52],[0.05,0.70],
+      [0.28,0.72],[0.52,0.76],[0.78,0.80],[0.48,0.58],[0.70,0.30]
+    ];
+    var eg = [
+      [0,1],[1,2],[2,3],[3,4],[4,8],[4,14],
+      [0,5],[5,6],[6,7],[7,8],[8,12],
+      [2,6],[3,14],[14,7],[14,13],[13,11],
+      [5,10],[6,13],[7,11],[9,5],[9,10],[10,11],[11,12],[1,6],[3,7]
+    ];
+
+    var C_e = 'rgba(74,140,106,0.18)';
+    var C_n = 'rgba(104,181,138,0.45)';
+    var C_p = 'rgba(140,210,170,0.95)';
+    var C_g = 'rgba(104,181,138,0.15)';
+
+    var pulses = [];
+    function spawn(){
+      var e = eg[Math.floor(Math.random()*eg.length)];
+      var rev = Math.random() > 0.5;
+      pulses.push({a: rev?e[1]:e[0], b: rev?e[0]:e[1], t:0, spd:0.0015+Math.random()*0.003});
+    }
+    for(var i=0;i<6;i++) spawn();
+
+    function draw(){
+      cx.clearRect(0,0,W,H);
+      var nodes = nd.map(function(n){return [n[0]*W, n[1]*H];});
+
+      eg.forEach(function(e){
+        var a=nodes[e[0]], b=nodes[e[1]];
+        cx.beginPath(); cx.moveTo(a[0],a[1]); cx.lineTo(b[0],b[1]);
+        cx.strokeStyle=C_e; cx.lineWidth=0.7; cx.stroke();
+      });
+
+      nodes.forEach(function(n){
+        cx.beginPath(); cx.arc(n[0],n[1],2.2,0,Math.PI*2);
+        cx.fillStyle=C_n; cx.fill();
+      });
+
+      var alive=[];
+      pulses.forEach(function(p){
+        p.t+=p.spd;
+        if(p.t>1){spawn();return;}
+        var a=nodes[p.a], b=nodes[p.b];
+        var x=a[0]+(b[0]-a[0])*p.t, y=a[1]+(b[1]-a[1])*p.t;
+        cx.beginPath(); cx.arc(x,y,5,0,Math.PI*2);
+        cx.fillStyle=C_g; cx.fill();
+        cx.beginPath(); cx.arc(x,y,2.5,0,Math.PI*2);
+        cx.fillStyle=C_p; cx.fill();
+        alive.push(p);
+      });
+      pulses=alive;
+      if(pulses.length<10 && Math.random()<0.015) spawn();
+      requestAnimationFrame(draw);
+    }
+    draw();
+  })();
 
   // ---- SECTION FILIGREE NUMBERS ----
   var secIds = ['about','experience','education','skills','projects','engagements','terrain','lectures','cv','contact'];
