@@ -868,9 +868,8 @@ document.querySelectorAll('[data-count]').forEach(el=>io2.observe(el));
   secIds.forEach(function(id, i){
     var sec = document.getElementById(id);
     if(!sec) return;
-    var ct = sec.querySelector('.container');
+    var ct = sec.querySelector('.section-wrap') || sec.querySelector('.cv-wrap') || sec.firstElementChild;
     if(!ct) return;
-    ct.style.position = 'relative';
     var n = document.createElement('span');
     n.className = 'sec-num';
     n.textContent = (i + 1 < 10 ? '0' : '') + (i + 1);
