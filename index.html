@@ -201,7 +201,7 @@ footer span{color:var(--gold)}
 #scroll-prog{position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,var(--gold),var(--gold-light));width:0%;z-index:9999;transition:width .08s linear}
 
 /* ====== AMBIENT BLOBS ====== */
-.amb-blob{position:fixed;border-radius:50%;pointer-events:none;z-index:0;filter:blur(100px);opacity:.055;will-change:transform;transition:opacity .3s}
+.amb-blob{position:fixed;border-radius:50%;pointer-events:none;z-index:0;filter:blur(60px);opacity:.055;will-change:transform;transform:translateZ(0);transition:opacity .3s}
 #blob1{width:640px;height:640px;background:radial-gradient(circle,#D4922A,transparent 70%);top:5%;left:15%}
 #blob2{width:500px;height:500px;background:radial-gradient(circle,#E8B845,transparent 70%);top:45%;left:55%}
 #blob3{width:420px;height:420px;background:radial-gradient(circle,#C47820,transparent 70%);top:75%;left:10%}
@@ -850,7 +850,7 @@ document.querySelectorAll('[data-count]').forEach(el=>io2.observe(el));
   ];
   blobData.forEach(function(b){ b.el = document.getElementById(b.id); });
   var startTime = performance.now();
-  function driftBlobs(now) {
+  var _fc=0;function driftBlobs(now) { _fc++;if(_fc%3!==0){requestAnimationFrame(driftBlobs);return;}
     var t = (now - startTime) * 0.001;
     blobData.forEach(function(b) {
       if(!b.el) return;
