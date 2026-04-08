@@ -36,8 +36,14 @@ h1.hero-name .accent{color:var(--gold)}
 .kpi-num{font-size:2.4rem;font-weight:900;color:var(--gold);line-height:1}
 .kpi-num sup{font-size:1rem;font-weight:700}
 .kpi-label{font-size:.72rem;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-top:.3rem}
-.hero-quote{margin-top:3.2rem;padding:1.4rem 2rem;border-left:3px solid var(--gold);background:rgba(212,175,55,0.04);max-width:680px;margin-left:auto;margin-right:auto;text-align:left}
-.hero-quote p{font-size:1rem;font-style:italic;color:var(--muted);line-height:1.8;opacity:.88;margin:0}
+.hero-quote{width:100%;margin-top:5rem;padding:3.5rem clamp(2rem,8vw,7rem);position:relative;text-align:center;overflow:hidden}
+.hero-quote::before{content:'';position:absolute;top:0;left:8%;right:8%;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.45}
+.hero-quote::after{content:'';position:absolute;bottom:0;left:8%;right:8%;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.2}
+.hero-quote-bg{font-size:clamp(6rem,14vw,11rem);color:var(--gold);opacity:.055;font-family:Georgia,serif;line-height:.85;display:block;letter-spacing:-4px;user-select:none;pointer-events:none;margin-bottom:-.5rem}
+.hero-quote p{font-size:clamp(1rem,1.9vw,1.3rem);font-style:italic;color:var(--muted);line-height:2;max-width:800px;margin:0 auto;letter-spacing:.25px;opacity:.9}
+.hero-quote-dot{display:flex;align-items:center;justify-content:center;gap:1rem;margin-top:2rem}
+.hero-quote-dot span{display:block;width:4px;height:4px;border-radius:50%;background:var(--gold);opacity:.55}
+.hero-quote-dot span:nth-child(2){width:28px;height:1px;border-radius:0;opacity:.4}
 .section-wrap{position:relative;z-index:1;max-width:1080px;margin:0 auto;padding:90px clamp(1.5rem,5vw,4rem)}
 .s-label{font-size:.7rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);margin-bottom:.6rem}
 .s-title{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:800;color:var(--white);margin-bottom:.4rem}
@@ -245,7 +251,9 @@ footer span{color:var(--gold)}
       <div class="kpi"><div class="kpi-num" data-count="3">0</div><div class="kpi-label">Langues maîtrisées</div></div>
     </div>
     <div class="hero-quote reveal">
-      <p>« Lorsqu’un homme œuvre, qu’il le fasse avec une rigueur telle qu’aucune imperfection ne puisse s’y loger. »</p>
+      <span class="hero-quote-bg" aria-hidden="true">«&nbsp;»</span>
+      <p>Lorsqu’un homme œuvre, qu’il le fasse avec une rigueur telle qu’aucune imperfection ne puisse s’y loger.</p>
+      <div class="hero-quote-dot"><span></span><span></span><span></span></div>
     </div>
   </div>
 </section>
