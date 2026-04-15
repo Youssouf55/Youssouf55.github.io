@@ -4,7 +4,10 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Youssouf Bechir — Achats &amp; Supply Chain</title>
-<style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
 :root{--navy:#0b1929;--navy-mid:#0f2340;--navy-light:#152e52;--card:#111f36;--gold:#c8a84b;--gold-light:#dfc06a;--gold-dim:rgba(200,168,75,0.15);--border:rgba(200,168,75,0.18);--white:#f0f4fb;--muted:#8898b8;--text:#d8e2f4;--radius:10px}
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;font-size:16px}
@@ -212,9 +215,45 @@ footer span{color:var(--gold)}
 /* Section numbers */
 .s-title{position:relative;padding-left:4rem}
 .s-title .s-num{position:absolute;left:0;top:50%;transform:translateY(-50%);font-size:2.6rem;font-weight:900;color:var(--gold);opacity:0.22;line-height:1;font-variant-numeric:tabular-nums;pointer-events:none;user-select:none}
+
+/* ══════ VIE À LA FRANÇAISE ══════ */
+
+/* Tricolore — ruban en haut de page */
+body::before{content:'';position:fixed;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#002395 33.33%,#ffffff 33.33% 66.66%,#ED2939 66.66%);z-index:10000;pointer-events:none}
+
+/* Cormorant Garamond pour les titres de sections */
+.s-title{font-family:'Cormorant Garamond',Georgia,serif!important;font-weight:600;letter-spacing:.8px}
+.s-title .a{font-family:'Cormorant Garamond',Georgia,serif!important;font-style:italic}
+
+/* Curseur doré personnalisé */
+#cc-dot{position:fixed;width:10px;height:10px;background:var(--gold);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:transform .08s ease;box-shadow:0 0 8px var(--gold),0 0 18px rgba(212,175,55,.35);opacity:0}
+#cc-ring{position:fixed;width:30px;height:30px;border:1.5px solid rgba(212,175,55,.45);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:left .14s ease,top .14s ease;opacity:0}
+
+/* Pellicule / film strip hero */
+.hero-pellicule{position:absolute;bottom:0;left:0;right:0;height:42px;overflow:hidden;opacity:.12;pointer-events:none;display:flex}
+.pellic-track{display:flex;flex-shrink:0;animation:pellic 26s linear infinite;will-change:transform}
+.pellic-track span{display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;font-size:1.25rem;border-left:1px solid rgba(212,175,55,.35);flex-shrink:0}
+@keyframes pellic{from{transform:translateX(0)}to{transform:translateX(-100%)}}
+
+/* Book card flip */
+.book-card{perspective:900px!important;background:transparent!important;border:none!important;padding:0!important;box-shadow:none!important}
+.book-inner{position:relative;width:100%;min-height:175px;height:100%;transform-style:preserve-3d;transition:transform .6s cubic-bezier(.4,0,.2,1);cursor:pointer}
+.book-card:hover .book-inner,.book-card:focus-within .book-inner{transform:rotateY(180deg)}
+.book-front,.book-back{position:absolute;inset:0;backface-visibility:hidden;border-radius:12px;padding:1.4rem 1.2rem;display:flex;flex-direction:column;gap:.5rem}
+.book-front{background:var(--card);border:1px solid rgba(212,175,55,.15)}
+.book-back{background:linear-gradient(135deg,#0c1c36 0%,#162840 100%);border:1px solid rgba(212,175,55,.4);transform:rotateY(180deg);justify-content:center;gap:.6rem}
+.book-insight-label{font-size:.62rem;letter-spacing:.18em;color:var(--gold);text-transform:uppercase;opacity:.85}
+.book-insight-text{font-family:'Cormorant Garamond',Georgia,serif;font-size:1rem;font-style:italic;color:var(--text);line-height:1.7;font-weight:300}
+
+/* Carnet de terrain — papier ligné sur visit-cards */
+.visit-card{background:repeating-linear-gradient(var(--card) 0px,var(--card) 23px,rgba(212,175,55,.04) 24px,var(--card) 25px)!important;position:relative!important}
+.visit-card::after{content:'';position:absolute;left:2.8rem;top:0;bottom:0;width:1px;background:rgba(212,175,55,.09);pointer-events:none}
+
 </style>
 </head>
 <body>
+<div id="cc-dot"></div>
+<div id="cc-ring"></div>
 <canvas id="canvas-bg"></canvas>
 
 <!-- NAV -->
@@ -256,6 +295,10 @@ footer span{color:var(--gold)}
     </div>
     <div class="hero-quote reveal">
       <div class="hq-rule"><div class="hq-diamond"></div></div>
+      <div class="hero-pellicule" aria-hidden="true">
+        <div class="pellic-track"><span>🚢</span><span>📦</span><span>✈️</span><span>🏭</span><span>🚛</span><span>📊</span><span>🔗</span><span>⚙️</span><span>🚢</span><span>📦</span><span>✈️</span><span>🏭</span><span>🚛</span><span>📊</span><span>🔗</span><span>⚙️</span><span>🚢</span><span>📦</span><span>✈️</span><span>🏭</span><span>🚛</span><span>📊</span><span>🔗</span><span>⚙️</span><span>🚢</span><span>📦</span><span>✈️</span><span>🏭</span><span>🚛</span><span>📊</span><span>🔗</span><span>⚙️</span></div>
+        <div class="pellic-track" aria-hidden="true"><span>🚢</span><span>📦</span><span>✈️</span><span>🏭</span><span>🚛</span><span>📊</span><span>🔗</span><span>⚙️</span><span>🚢</span><span>📦</span><span>✈️</span><span>🏭</span><span>🚛</span><span>📊</span><span>🔗</span><span>⚙️</span><span>🚢</span><span>📦</span><span>✈️</span><span>🏭</span><span>🚛</span><span>📊</span><span>🔗</span><span>⚙️</span><span>🚢</span><span>📦</span><span>✈️</span><span>🏭</span><span>🚛</span><span>📊</span><span>🔗</span><span>⚙️</span></div>
+      </div>
       <div class="hq-body">
         <span class="hq-glyph hq-glyph-open" aria-hidden="true">«</span>
         <p>Lorsqu’un homme œuvre, qu’il le fasse avec une <strong>rigueur</strong> telle<br>qu’aucune imperfection ne puisse s’y loger.</p>
@@ -672,35 +715,65 @@ footer span{color:var(--gold)}
     <div class="books-grid books-grid--5">
 
       <div class="book-card reveal">
-        <div class="book-title">The Goal</div>
+  <div class="book-inner">
+    <div class="book-front"><div class="book-title">The Goal</div>
         <div class="book-author">Eliyahu M. Goldratt</div>
-        <span class="book-tag">Théorie des contraintes</span>
-      </div>
+        <span class="book-tag">Théorie des contraintes</span></div>
+    <div class="book-back">
+      <div class="book-insight-label">Ce que j’en retiens</div>
+      <div class="book-insight-text">Un goulot d’étranglement dicte la performance de toute la chaîne. Optimiser ailleurs sans l’identifier, c’est du gaspillage organisé.</div>
+    </div>
+  </div>
+</div>
 
       <div class="book-card reveal">
-        <div class="book-title">Supply Chain Management</div>
+  <div class="book-inner">
+    <div class="book-front"><div class="book-title">Supply Chain Management</div>
         <div class="book-author">Sunil Chopra &amp; Peter Meindl</div>
-        <span class="book-tag">Référence mondiale</span>
-      </div>
+        <span class="book-tag">Référence mondiale</span></div>
+    <div class="book-back">
+      <div class="book-insight-label">Ce que j’en retiens</div>
+      <div class="book-insight-text">Toute stratégie SC est un arbitrage fondamental entre réactivité et efficience — il n’existe pas de configuration universelle.</div>
+    </div>
+  </div>
+</div>
 
       <div class="book-card reveal">
-        <div class="book-title">The Lean Startup</div>
+  <div class="book-inner">
+    <div class="book-front"><div class="book-title">The Lean Startup</div>
         <div class="book-author">Eric Ries</div>
-        <span class="book-tag">Innovation &amp; agilité</span>
-      </div>
+        <span class="book-tag">Innovation &amp; agilité</span></div>
+    <div class="book-back">
+      <div class="book-insight-label">Ce que j’en retiens</div>
+      <div class="book-insight-text">Un MVP n’est pas un produit dégradé : c’est une hypothèse habillée. Le marché est le seul juge qui compte.</div>
+    </div>
+  </div>
+</div>
 
 
       <div class="book-card reveal">
-        <div class="book-title">Baromètre France Supply Chain</div>
+  <div class="book-inner">
+    <div class="book-front"><div class="book-title">Baromètre France Supply Chain</div>
         <div class="book-author">ASLOG</div>
-        <span class="book-tag">Référence nationale</span>
-      </div>
+        <span class="book-tag">Référence nationale</span></div>
+    <div class="book-back">
+      <div class="book-insight-label">Ce que j’en retiens</div>
+      <div class="book-insight-text">La supply chain française tarde à se digitaliser. Les pionniers qui comblent ce retard creusent déjà un écart décisif.</div>
+    </div>
+  </div>
+</div>
 
       <div class="book-card reveal">
-        <div class="book-title">Gartner Supply Chain Top 25</div>
+  <div class="book-inner">
+    <div class="book-front"><div class="book-title">Gartner Supply Chain Top 25</div>
         <div class="book-author">Gartner</div>
-        <span class="book-tag">Benchmark mondial</span>
-      </div>
+        <span class="book-tag">Benchmark mondial</span></div>
+    <div class="book-back">
+      <div class="book-insight-label">Ce que j’en retiens</div>
+      <div class="book-insight-text">Les chaînes les plus performantes ne subissent pas la disruption — elles la devancent. La supply chain est un avantage concurrentiel, pas un centre de coût.</div>
+    </div>
+  </div>
+</div>
     </div>
   </div>
 </section>
@@ -794,6 +867,24 @@ document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 function countUp(el,target){let cur=0;const sup=el.querySelector('sup');const step=Math.max(1,Math.floor(target/60));const id=setInterval(()=>{cur=Math.min(cur+step,target);el.innerHTML=cur+(sup?`<sup>${sup.innerHTML}</sup>`:'');if(cur>=target)clearInterval(id)},22)}
 const io2=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){const el=e.target,t=parseInt(el.dataset.count);countUp(el,t);io2.unobserve(el)}})},{threshold:.5});
 document.querySelectorAll('[data-count]').forEach(el=>io2.observe(el));
+</script>
+
+<script>
+(function(){
+  var dot=document.getElementById('cc-dot'),ring=document.getElementById('cc-ring');
+  if(!dot||!ring)return;
+  document.addEventListener('mousemove',function(e){
+    dot.style.left=e.clientX+'px';dot.style.top=e.clientY+'px';
+    dot.style.opacity='1';ring.style.opacity='1';
+    requestAnimationFrame(function(){ring.style.left=e.clientX+'px';ring.style.top=e.clientY+'px'});
+  });
+  document.addEventListener('mouseleave',function(){dot.style.opacity='0';ring.style.opacity='0'});
+  // Scale on interactive elements
+  document.querySelectorAll('a,button,.book-card').forEach(function(el){
+    el.addEventListener('mouseenter',function(){dot.style.transform='translate(-50%,-50%) scale(2)';dot.style.background='#fff';});
+    el.addEventListener('mouseleave',function(){dot.style.transform='translate(-50%,-50%) scale(1)';dot.style.background='var(--gold)';});
+  });
+})();
 </script>
 </body>
 </html>
