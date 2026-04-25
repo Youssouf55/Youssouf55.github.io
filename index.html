@@ -79,9 +79,19 @@ h1.hero-name .accent{color:var(--gold)}
 .tpoints li{font-size:.84rem;color:var(--muted);padding:3px 0 3px 1.2rem;position:relative}
 .tpoints li::before{content:'›';position:absolute;left:0;color:var(--gold);font-size:1rem;line-height:1.4}
 .tpoints li strong{color:var(--text)}
-.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.3rem}
+.skills-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem}
 .skill-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.5rem;transition:border-color .25s,transform .2s}
 .skill-card:hover{border-color:var(--gold);transform:translateY(-3px)}
+.skill-card:nth-child(1){--acc:#c8a84b;--acc-dim:rgba(200,168,75,.13)}
+.skill-card:nth-child(2){--acc:#4a90d9;--acc-dim:rgba(74,144,217,.13)}
+.skill-card:nth-child(3){--acc:#3dcfb0;--acc-dim:rgba(61,207,176,.13)}
+.skill-card:nth-child(4){--acc:#a06dd9;--acc-dim:rgba(160,109,217,.13)}
+.skill-card{border-top:2px solid var(--acc,var(--border))}
+.skill-card:hover{border-color:var(--acc,var(--gold))!important;box-shadow:0 8px 36px var(--acc-dim,rgba(200,168,75,.15))!important;transform:translateY(-4px)!important}
+.skill-card .sc-icon{background:var(--acc-dim,var(--gold-dim))}
+.skill-card .sc-icon svg{stroke:var(--acc,var(--gold))}
+.skill-card .sc-title{color:var(--acc,var(--white))}
+.tag-notion{opacity:.6;border-style:dashed!important}
 .sc-header{display:flex;align-items:center;gap:.8rem;margin-bottom:1rem}
 .sc-icon{width:36px;height:36px;border-radius:8px;background:var(--gold-dim);display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .sc-icon svg{width:18px;height:18px;stroke:var(--gold);fill:none;stroke-width:1.8}
@@ -426,14 +436,14 @@ body::before{content:'';position:fixed;top:0;left:0;right:0;height:3px;backgroun
       </div>
       <div class="skill-card reveal">
         <div class="sc-header"><div class="sc-icon"><svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div><div class="sc-title">Analyse &amp; Reporting</div></div>
-        <div class="tags"><span class="tag">Excel Avancé</span><span class="tag">VBA</span><span class="tag">Power BI</span><span class="tag">KPI &amp; Tableaux de bord</span><span class="tag">SQL (notions)</span><span class="tag">Python (notions)</span></div>
+        <div class="tags"><span class="tag">Excel Avancé</span><span class="tag">VBA</span><span class="tag">Power BI</span><span class="tag">KPI &amp; Tableaux de bord</span><span class="tag tag-notion">SQL ●○○</span><span class="tag tag-notion">Python ●○○</span></div>
       </div>
       <div class="skill-card reveal">
         <div class="sc-header"><div class="sc-icon"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><div class="sc-title">Outils Métier</div></div>
         <div class="tags"><span class="tag">Storeway</span><span class="tag">Gedmouv</span><span class="tag">WaryMe</span><span class="tag">AS400</span><span class="tag">Sinari</span><span class="tag">LaTeX / Overleaf</span><span class="tag">TMS / WMS</span></div>
       </div>
       <div class="skill-card reveal">
-        <div class="sc-header"><div class="sc-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><div class="sc-title">Soft Skills</div></div>
+        <div class="sc-header"><div class="sc-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><div class="sc-title">Savoir-être</div></div>
         <div class="tags"><span class="tag">Coordination interculturelle</span><span class="tag">Pilotage sous contrainte</span><span class="tag">Culture métier autodidacte</span><span class="tag">Raisonnement structuré</span><span class="tag">Curiosité terrain</span><span class="tag">Permis B · Véhiculé</span></div>
       </div>
     </div>
