@@ -247,11 +247,11 @@ body::before{content:'';position:fixed;top:0;left:0;right:0;height:3px;backgroun
 
 /* Book card flip */
 .book-card{perspective:900px!important;background:transparent!important;border:none!important;padding:0!important;box-shadow:none!important}
-.book-inner{position:relative;width:100%;min-height:260px;height:100%;transform-style:preserve-3d;transition:transform .6s cubic-bezier(.4,0,.2,1);cursor:pointer}
+.book-inner{position:relative;width:100%;min-height:260px;height:100%;transform-style:preserve-3d;transition:transform .6s cubic-bezier(.4,0,.2,1);cursor:pointer;overflow:hidden}
 .book-card:hover .book-inner,.book-card:focus-within .book-inner{transform:rotateY(180deg)}
 .book-front,.book-back{position:absolute;inset:0;backface-visibility:hidden;border-radius:12px;padding:1.4rem 1.2rem;display:flex;flex-direction:column;gap:.5rem}
 .book-front{background:var(--card);border:1px solid rgba(212,175,55,.15)}
-.book-back{background:linear-gradient(135deg,#0c1c36 0%,#162840 100%);border:1px solid rgba(212,175,55,.4);transform:rotateY(180deg);justify-content:center;gap:.4rem;overflow:hidden;padding:1rem .9rem}
+.book-back{background:linear-gradient(135deg,#0c1c36 0%,#162840 100%);border:1px solid rgba(212,175,55,.4);transform:rotateY(180deg);justify-content:flex-start;gap:.4rem;overflow:hidden;padding:1rem .9rem}
 .book-insight-label{font-size:.62rem;letter-spacing:.18em;color:var(--gold);text-transform:uppercase;opacity:.85}
 .book-insight-text{font-family:'Cormorant Garamond',Georgia,serif;font-size:.82rem;font-style:italic;color:var(--text);line-height:1.7;font-weight:300}
 
