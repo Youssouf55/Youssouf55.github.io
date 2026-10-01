@@ -685,7 +685,8 @@ function Chart(host,o){this.h=host;this.o=o;this.i=null;var self=this;
   else if(k==='ArrowRight'){self.at(Math.min(self.n-1,(self.i==null?self.n-1:self.i)+st));e.preventDefault()}
   else if(k==='Home'){self.at(0);e.preventDefault()}else if(k==='End'){self.at(self.n-1);e.preventDefault()}
   else if(k==='Escape'){self.at(null)}});
- if('ResizeObserver' in window){var w0=0;new ResizeObserver(function(){var w=host.clientWidth;if(Math.abs(w-w0)>4){w0=w;self.draw()}}).observe(host)}
+ this.draw();
+ if('ResizeObserver' in window){var w0=host.clientWidth;new ResizeObserver(function(){var w=host.clientWidth;if(Math.abs(w-w0)>4){w0=w;self.draw()}}).observe(host)}
  else window.addEventListener('resize',function(){self.draw()});
 }
 Chart.prototype.set=function(o){for(var k in o)this.o[k]=o[k];this.draw()};
